@@ -1,0 +1,14 @@
+server:
+    port: 7902
+spring:
+    application:
+        name: guessing
+logging:
+  config: classpath:log4j2.xml
+mongo:
+    username: test
+    password: testpw
+    database: zhangyu
+    hosts: dds-uf6a8cc0dd84a8f41.mongodb.rds.aliyuncs.com,dds-uf6a8cc0dd84a8f42.mongodb.rds.aliyuncs.com
+    port: 3717
+    replicaSet: mgset-4453197
