@@ -46,3 +46,8 @@ mongo:
     hosts: dds-uf6a8cc0dd84a8f41.mongodb.rds.aliyuncs.com,dds-uf6a8cc0dd84a8f42.mongodb.rds.aliyuncs.com
     port: 3717
     replicaSet: mgset-4453197
+
+gunqiu:
+    vendorIdValue: 1521
+    vendorAppIdValue: 1001
+    secretKey: test001

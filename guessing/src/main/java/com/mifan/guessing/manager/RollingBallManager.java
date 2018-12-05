@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.mifan.guessing.model.EventMarket;
 import com.mifan.guessing.model.TradeOrder;
+import com.mifan.guessing.utils.DateUtils;
 import org.apache.tomcat.util.security.MD5Encoder;
 
 import java.time.LocalDateTime;
@@ -34,12 +35,7 @@ public class RollingBallManager {
 
     private String sign(){
         StringBuffer stringBuffer = new StringBuffer();
-        //初始化时区对象，北京时间是UTC+8，所以入参为8
-        ZoneOffset zoneOffset=ZoneOffset.ofHours(8);
-        // 初始化LocalDateTime对象 
-        LocalDateTime localDateTime=LocalDateTime.now();
-        //获取LocalDateTime对象对应时区的Unix时间戳
-        long unixTimeStamp = localDateTime.toEpochSecond(zoneOffset);
+        long unixTimeStamp = DateUtils.getUnixDate();
         stringBuffer.append(vendorIdKey).append(vendorIdValue).append("&").append(vendorAppAIdKey).append(vendorAppIdValue)
                 .append("&").append(requestTimeKey).append(unixTimeStamp).append("&").append(secretKey);
         String encode = MD5Encoder.encode(stringBuffer.toString().getBytes());
