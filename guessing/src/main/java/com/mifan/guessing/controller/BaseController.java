@@ -1,8 +1,8 @@
 package com.mifan.guessing.controller;
 
+import com.mifan.guessing.controller.response.BaseResponse;
 import com.mifan.guessing.exception.GuessingErrorCode;
 import com.mifan.guessing.exception.GuessingRunTimeException;
-import com.mifan.guessing.model.response.BaseResponse;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.http.HttpStatus;
