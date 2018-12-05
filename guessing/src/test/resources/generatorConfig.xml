@@ -8,7 +8,7 @@
     <context id="DB2Tables"  targetRuntime="MyBatis3">
 
         <!-- 查询单条数据插件 -->
-        <plugin type="com.itfsw.mybatis.generator.plugins.SelectOneByExamplePlugin"/>
+        <!--<plugin type="com.itfsw.mybatis.generator.plugins.SelectOneByExamplePlugin"/>-->
 
         <commentGenerator>
             <property name="suppressDate" value="true"/>
@@ -35,8 +35,13 @@
         </javaClientGenerator>
         <!-- 要生成的表 tableName是数据库中的表名或视图名 domainObjectName是实体类名-->
 
-        <table tableName="event" domainObjectName="Event"></table>
-        <table tableName="banner" domainObjectName="Banner"></table>
+        <!--<table tableName="event" domainObjectName="Event"></table>-->
+        <!--<table tableName="banner" domainObjectName="Banner"></table>-->
+
+        <!--<table tableName="trade_order" domainObjectName="TradeOrder"></table>-->
+
+        <table tableName="market" domainObjectName="Market"></table>
+        <table tableName="selection" domainObjectName="Selection"></table>
 
     </context>
 </generatorConfiguration>
