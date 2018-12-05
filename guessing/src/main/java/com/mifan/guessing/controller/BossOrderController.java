@@ -18,10 +18,10 @@ import org.springframework.web.bind.annotation.RestController;
  * @create 2018/12/4
  */
 @RestController
-@RequestMapping(value = "/app/event")
-public class EventController extends BaseController{
+@RequestMapping(value = "/app/select")
+public class BossOrderController extends BaseController{
 
-    private static Logger logger = LogManager.getLogger( EventController.class );
+    private static Logger logger = LogManager.getLogger( BossOrderController.class );
 
     @Autowired
     private EventDomain eventDomain;
