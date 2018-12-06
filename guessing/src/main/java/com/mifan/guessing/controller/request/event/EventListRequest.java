@@ -1,6 +1,8 @@
 package com.mifan.guessing.controller.request.event;
 
 import com.mifan.guessing.controller.request.BaseRequest;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -9,16 +11,20 @@ import javax.validation.constraints.Min;
  * @auther wangbinlei
  * @create 2018/12/4
  */
+@ApiModel
 public class EventListRequest extends BaseRequest{
 
+    @ApiModelProperty( name = "pageNum" , value = "页码" )
     @Min( value = 1 , message = "页码必须大于0")
     private int pageNum;
 
+    @ApiModelProperty( name = "pageSize" , value = "条数" )
     @Min( value = 1 , message = "条数必须大于0")
     @Max( value = 20 , message = "条数必须小于20")
     private int pageSize;
 
-    private int sportType;//赛事类型 1 足球
+    @ApiModelProperty( name = "eventType" , value = "赛事类型" )
+    private String eventType;//赛事类型
 
     public int getPageNum() {
         return pageNum;
@@ -36,11 +42,11 @@ public class EventListRequest extends BaseRequest{
         this.pageSize = pageSize;
     }
 
-    public int getSportType() {
-        return sportType;
+    public String getEventType() {
+        return eventType;
     }
 
-    public void setSportType(int sportType) {
-        this.sportType = sportType;
+    public void setEventType(String eventType) {
+        this.eventType = eventType;
     }
 }

@@ -10,7 +10,7 @@ import java.util.Date;
  * @create 2018/12/4
  */
 @ApiModel
-public class EventListResponse {
+public class EventDetailResponse {
 
     @ApiModelProperty( name = "id" , value = "赛事ID" )
     private String id;//赛事ID

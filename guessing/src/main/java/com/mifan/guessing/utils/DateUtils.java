@@ -29,4 +29,15 @@ public class DateUtils {
         return resultDate;
     }
 
+
+    public static Date paseDateYYYYMMDD(Date date){
+        Calendar c = Calendar.getInstance();
+        c.setTime(date);
+        c.set(Calendar.HOUR_OF_DAY, 00);
+        c.set(Calendar.MINUTE, 00);
+        c.set(Calendar.SECOND, 00);
+        Date resultDate = c.getTime();
+        return resultDate;
+    }
+
 }
