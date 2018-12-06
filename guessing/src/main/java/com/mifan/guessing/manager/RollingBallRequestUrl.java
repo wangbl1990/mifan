@@ -6,27 +6,25 @@ package com.mifan.guessing.manager;
  */
 public class RollingBallRequestUrl {
 
-    private static String eventList = "";
+    //赛事列表
+    public static String eventList = "http://www.xxx.com/api/eventList";
+    //赛事详情
+    public static String eventInfo = "http://www.xxx.com/api/eventInfo";
+    //
+    public static String eventMarkets = "http://www.xxx.com/api/eventMarkets";
 
-    private static String eventInfo = "";
+    public static String tradeOrderPlace = "http://www.xxx.com/api/tradeOrderPlace";
 
-    private static String eventMarkets = "";
+    public static String tradeOrderCancel = "http://www.xxx.com/api/tradeOrderCancel";
 
-    private static String tradeOrderPlace = "";
+    public static String pushEventSubscription = "http://www.xxx.com/api/tradeOrderInfo ";
 
-    private static String tradeOrderCancel = "";
+    public static String tradeOrderInfo = "http://www.xxx.com/api/tradeOrderList";
 
-    private static String tradeOrderInfo = "";
+    public static String tradeOrderList = "http://www.xxx.com/api/pushEventSubscribe";
 
-    private static String tradeOrderList = "";
+    public static String pushEventSubscribe = "http://www.xxx.com/api/pushEventSubscription";
 
-    private static String pushEventSubscribe = "";
-
-    private static String pushEventUnSubscribe = "";
-
-    private static String pushEventSubscription = "";
-
-
-
+    public static String pushEventUnSubscribe = "http://www.xxx.com/api/pushEventUnSubscribe";
 
 }
