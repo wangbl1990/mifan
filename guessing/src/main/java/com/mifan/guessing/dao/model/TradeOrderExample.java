@@ -246,146 +246,6 @@ public class TradeOrderExample {
             return (Criteria) this;
         }
 
-        public Criteria andOutOrderIdIsNull() {
-            addCriterion("out_order_id is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andOutOrderIdIsNotNull() {
-            addCriterion("out_order_id is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andOutOrderIdEqualTo(String value) {
-            addCriterion("out_order_id =", value, "outOrderId");
-            return (Criteria) this;
-        }
-
-        public Criteria andOutOrderIdNotEqualTo(String value) {
-            addCriterion("out_order_id <>", value, "outOrderId");
-            return (Criteria) this;
-        }
-
-        public Criteria andOutOrderIdGreaterThan(String value) {
-            addCriterion("out_order_id >", value, "outOrderId");
-            return (Criteria) this;
-        }
-
-        public Criteria andOutOrderIdGreaterThanOrEqualTo(String value) {
-            addCriterion("out_order_id >=", value, "outOrderId");
-            return (Criteria) this;
-        }
-
-        public Criteria andOutOrderIdLessThan(String value) {
-            addCriterion("out_order_id <", value, "outOrderId");
-            return (Criteria) this;
-        }
-
-        public Criteria andOutOrderIdLessThanOrEqualTo(String value) {
-            addCriterion("out_order_id <=", value, "outOrderId");
-            return (Criteria) this;
-        }
-
-        public Criteria andOutOrderIdLike(String value) {
-            addCriterion("out_order_id like", value, "outOrderId");
-            return (Criteria) this;
-        }
-
-        public Criteria andOutOrderIdNotLike(String value) {
-            addCriterion("out_order_id not like", value, "outOrderId");
-            return (Criteria) this;
-        }
-
-        public Criteria andOutOrderIdIn(List<String> values) {
-            addCriterion("out_order_id in", values, "outOrderId");
-            return (Criteria) this;
-        }
-
-        public Criteria andOutOrderIdNotIn(List<String> values) {
-            addCriterion("out_order_id not in", values, "outOrderId");
-            return (Criteria) this;
-        }
-
-        public Criteria andOutOrderIdBetween(String value1, String value2) {
-            addCriterion("out_order_id between", value1, value2, "outOrderId");
-            return (Criteria) this;
-        }
-
-        public Criteria andOutOrderIdNotBetween(String value1, String value2) {
-            addCriterion("out_order_id not between", value1, value2, "outOrderId");
-            return (Criteria) this;
-        }
-
-        public Criteria andVendorPlayerIdIsNull() {
-            addCriterion("vendor_player_id is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andVendorPlayerIdIsNotNull() {
-            addCriterion("vendor_player_id is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andVendorPlayerIdEqualTo(String value) {
-            addCriterion("vendor_player_id =", value, "vendorPlayerId");
-            return (Criteria) this;
-        }
-
-        public Criteria andVendorPlayerIdNotEqualTo(String value) {
-            addCriterion("vendor_player_id <>", value, "vendorPlayerId");
-            return (Criteria) this;
-        }
-
-        public Criteria andVendorPlayerIdGreaterThan(String value) {
-            addCriterion("vendor_player_id >", value, "vendorPlayerId");
-            return (Criteria) this;
-        }
-
-        public Criteria andVendorPlayerIdGreaterThanOrEqualTo(String value) {
-            addCriterion("vendor_player_id >=", value, "vendorPlayerId");
-            return (Criteria) this;
-        }
-
-        public Criteria andVendorPlayerIdLessThan(String value) {
-            addCriterion("vendor_player_id <", value, "vendorPlayerId");
-            return (Criteria) this;
-        }
-
-        public Criteria andVendorPlayerIdLessThanOrEqualTo(String value) {
-            addCriterion("vendor_player_id <=", value, "vendorPlayerId");
-            return (Criteria) this;
-        }
-
-        public Criteria andVendorPlayerIdLike(String value) {
-            addCriterion("vendor_player_id like", value, "vendorPlayerId");
-            return (Criteria) this;
-        }
-
-        public Criteria andVendorPlayerIdNotLike(String value) {
-            addCriterion("vendor_player_id not like", value, "vendorPlayerId");
-            return (Criteria) this;
-        }
-
-        public Criteria andVendorPlayerIdIn(List<String> values) {
-            addCriterion("vendor_player_id in", values, "vendorPlayerId");
-            return (Criteria) this;
-        }
-
-        public Criteria andVendorPlayerIdNotIn(List<String> values) {
-            addCriterion("vendor_player_id not in", values, "vendorPlayerId");
-            return (Criteria) this;
-        }
-
-        public Criteria andVendorPlayerIdBetween(String value1, String value2) {
-            addCriterion("vendor_player_id between", value1, value2, "vendorPlayerId");
-            return (Criteria) this;
-        }
-
-        public Criteria andVendorPlayerIdNotBetween(String value1, String value2) {
-            addCriterion("vendor_player_id not between", value1, value2, "vendorPlayerId");
-            return (Criteria) this;
-        }
-
         public Criteria andEventIdIsNull() {
             addCriterion("event_id is null");
             return (Criteria) this;
@@ -716,196 +576,6 @@ public class TradeOrderExample {
             return (Criteria) this;
         }
 
-        public Criteria andFillAmountIsNull() {
-            addCriterion("fill_amount is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andFillAmountIsNotNull() {
-            addCriterion("fill_amount is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andFillAmountEqualTo(BigDecimal value) {
-            addCriterion("fill_amount =", value, "fillAmount");
-            return (Criteria) this;
-        }
-
-        public Criteria andFillAmountNotEqualTo(BigDecimal value) {
-            addCriterion("fill_amount <>", value, "fillAmount");
-            return (Criteria) this;
-        }
-
-        public Criteria andFillAmountGreaterThan(BigDecimal value) {
-            addCriterion("fill_amount >", value, "fillAmount");
-            return (Criteria) this;
-        }
-
-        public Criteria andFillAmountGreaterThanOrEqualTo(BigDecimal value) {
-            addCriterion("fill_amount >=", value, "fillAmount");
-            return (Criteria) this;
-        }
-
-        public Criteria andFillAmountLessThan(BigDecimal value) {
-            addCriterion("fill_amount <", value, "fillAmount");
-            return (Criteria) this;
-        }
-
-        public Criteria andFillAmountLessThanOrEqualTo(BigDecimal value) {
-            addCriterion("fill_amount <=", value, "fillAmount");
-            return (Criteria) this;
-        }
-
-        public Criteria andFillAmountIn(List<BigDecimal> values) {
-            addCriterion("fill_amount in", values, "fillAmount");
-            return (Criteria) this;
-        }
-
-        public Criteria andFillAmountNotIn(List<BigDecimal> values) {
-            addCriterion("fill_amount not in", values, "fillAmount");
-            return (Criteria) this;
-        }
-
-        public Criteria andFillAmountBetween(BigDecimal value1, BigDecimal value2) {
-            addCriterion("fill_amount between", value1, value2, "fillAmount");
-            return (Criteria) this;
-        }
-
-        public Criteria andFillAmountNotBetween(BigDecimal value1, BigDecimal value2) {
-            addCriterion("fill_amount not between", value1, value2, "fillAmount");
-            return (Criteria) this;
-        }
-
-        public Criteria andFillPriceIsNull() {
-            addCriterion("fill_price is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andFillPriceIsNotNull() {
-            addCriterion("fill_price is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andFillPriceEqualTo(BigDecimal value) {
-            addCriterion("fill_price =", value, "fillPrice");
-            return (Criteria) this;
-        }
-
-        public Criteria andFillPriceNotEqualTo(BigDecimal value) {
-            addCriterion("fill_price <>", value, "fillPrice");
-            return (Criteria) this;
-        }
-
-        public Criteria andFillPriceGreaterThan(BigDecimal value) {
-            addCriterion("fill_price >", value, "fillPrice");
-            return (Criteria) this;
-        }
-
-        public Criteria andFillPriceGreaterThanOrEqualTo(BigDecimal value) {
-            addCriterion("fill_price >=", value, "fillPrice");
-            return (Criteria) this;
-        }
-
-        public Criteria andFillPriceLessThan(BigDecimal value) {
-            addCriterion("fill_price <", value, "fillPrice");
-            return (Criteria) this;
-        }
-
-        public Criteria andFillPriceLessThanOrEqualTo(BigDecimal value) {
-            addCriterion("fill_price <=", value, "fillPrice");
-            return (Criteria) this;
-        }
-
-        public Criteria andFillPriceIn(List<BigDecimal> values) {
-            addCriterion("fill_price in", values, "fillPrice");
-            return (Criteria) this;
-        }
-
-        public Criteria andFillPriceNotIn(List<BigDecimal> values) {
-            addCriterion("fill_price not in", values, "fillPrice");
-            return (Criteria) this;
-        }
-
-        public Criteria andFillPriceBetween(BigDecimal value1, BigDecimal value2) {
-            addCriterion("fill_price between", value1, value2, "fillPrice");
-            return (Criteria) this;
-        }
-
-        public Criteria andFillPriceNotBetween(BigDecimal value1, BigDecimal value2) {
-            addCriterion("fill_price not between", value1, value2, "fillPrice");
-            return (Criteria) this;
-        }
-
-        public Criteria andPlacedResultIsNull() {
-            addCriterion("placed_result is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andPlacedResultIsNotNull() {
-            addCriterion("placed_result is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andPlacedResultEqualTo(String value) {
-            addCriterion("placed_result =", value, "placedResult");
-            return (Criteria) this;
-        }
-
-        public Criteria andPlacedResultNotEqualTo(String value) {
-            addCriterion("placed_result <>", value, "placedResult");
-            return (Criteria) this;
-        }
-
-        public Criteria andPlacedResultGreaterThan(String value) {
-            addCriterion("placed_result >", value, "placedResult");
-            return (Criteria) this;
-        }
-
-        public Criteria andPlacedResultGreaterThanOrEqualTo(String value) {
-            addCriterion("placed_result >=", value, "placedResult");
-            return (Criteria) this;
-        }
-
-        public Criteria andPlacedResultLessThan(String value) {
-            addCriterion("placed_result <", value, "placedResult");
-            return (Criteria) this;
-        }
-
-        public Criteria andPlacedResultLessThanOrEqualTo(String value) {
-            addCriterion("placed_result <=", value, "placedResult");
-            return (Criteria) this;
-        }
-
-        public Criteria andPlacedResultLike(String value) {
-            addCriterion("placed_result like", value, "placedResult");
-            return (Criteria) this;
-        }
-
-        public Criteria andPlacedResultNotLike(String value) {
-            addCriterion("placed_result not like", value, "placedResult");
-            return (Criteria) this;
-        }
-
-        public Criteria andPlacedResultIn(List<String> values) {
-            addCriterion("placed_result in", values, "placedResult");
-            return (Criteria) this;
-        }
-
-        public Criteria andPlacedResultNotIn(List<String> values) {
-            addCriterion("placed_result not in", values, "placedResult");
-            return (Criteria) this;
-        }
-
-        public Criteria andPlacedResultBetween(String value1, String value2) {
-            addCriterion("placed_result between", value1, value2, "placedResult");
-            return (Criteria) this;
-        }
-
-        public Criteria andPlacedResultNotBetween(String value1, String value2) {
-            addCriterion("placed_result not between", value1, value2, "placedResult");
-            return (Criteria) this;
-        }
-
         public Criteria andStatusIsNull() {
             addCriterion("status is null");
             return (Criteria) this;
@@ -1036,313 +706,283 @@ public class TradeOrderExample {
             return (Criteria) this;
         }
 
-        public Criteria andSettledResultIsNull() {
-            addCriterion("settled_result is null");
+        public Criteria andUserCodeIsNull() {
+            addCriterion("user_code is null");
             return (Criteria) this;
         }
 
-        public Criteria andSettledResultIsNotNull() {
-            addCriterion("settled_result is not null");
+        public Criteria andUserCodeIsNotNull() {
+            addCriterion("user_code is not null");
             return (Criteria) this;
         }
 
-        public Criteria andSettledResultEqualTo(String value) {
-            addCriterion("settled_result =", value, "settledResult");
+        public Criteria andUserCodeEqualTo(String value) {
+            addCriterion("user_code =", value, "userCode");
             return (Criteria) this;
         }
 
-        public Criteria andSettledResultNotEqualTo(String value) {
-            addCriterion("settled_result <>", value, "settledResult");
+        public Criteria andUserCodeNotEqualTo(String value) {
+            addCriterion("user_code <>", value, "userCode");
             return (Criteria) this;
         }
 
-        public Criteria andSettledResultGreaterThan(String value) {
-            addCriterion("settled_result >", value, "settledResult");
+        public Criteria andUserCodeGreaterThan(String value) {
+            addCriterion("user_code >", value, "userCode");
             return (Criteria) this;
         }
 
-        public Criteria andSettledResultGreaterThanOrEqualTo(String value) {
-            addCriterion("settled_result >=", value, "settledResult");
+        public Criteria andUserCodeGreaterThanOrEqualTo(String value) {
+            addCriterion("user_code >=", value, "userCode");
             return (Criteria) this;
         }
 
-        public Criteria andSettledResultLessThan(String value) {
-            addCriterion("settled_result <", value, "settledResult");
+        public Criteria andUserCodeLessThan(String value) {
+            addCriterion("user_code <", value, "userCode");
             return (Criteria) this;
         }
 
-        public Criteria andSettledResultLessThanOrEqualTo(String value) {
-            addCriterion("settled_result <=", value, "settledResult");
+        public Criteria andUserCodeLessThanOrEqualTo(String value) {
+            addCriterion("user_code <=", value, "userCode");
             return (Criteria) this;
         }
 
-        public Criteria andSettledResultLike(String value) {
-            addCriterion("settled_result like", value, "settledResult");
+        public Criteria andUserCodeLike(String value) {
+            addCriterion("user_code like", value, "userCode");
             return (Criteria) this;
         }
 
-        public Criteria andSettledResultNotLike(String value) {
-            addCriterion("settled_result not like", value, "settledResult");
+        public Criteria andUserCodeNotLike(String value) {
+            addCriterion("user_code not like", value, "userCode");
             return (Criteria) this;
         }
 
-        public Criteria andSettledResultIn(List<String> values) {
-            addCriterion("settled_result in", values, "settledResult");
+        public Criteria andUserCodeIn(List<String> values) {
+            addCriterion("user_code in", values, "userCode");
             return (Criteria) this;
         }
 
-        public Criteria andSettledResultNotIn(List<String> values) {
-            addCriterion("settled_result not in", values, "settledResult");
+        public Criteria andUserCodeNotIn(List<String> values) {
+            addCriterion("user_code not in", values, "userCode");
             return (Criteria) this;
         }
 
-        public Criteria andSettledResultBetween(String value1, String value2) {
-            addCriterion("settled_result between", value1, value2, "settledResult");
+        public Criteria andUserCodeBetween(String value1, String value2) {
+            addCriterion("user_code between", value1, value2, "userCode");
             return (Criteria) this;
         }
 
-        public Criteria andSettledResultNotBetween(String value1, String value2) {
-            addCriterion("settled_result not between", value1, value2, "settledResult");
+        public Criteria andUserCodeNotBetween(String value1, String value2) {
+            addCriterion("user_code not between", value1, value2, "userCode");
             return (Criteria) this;
         }
 
-        public Criteria andSettledTimeIsNull() {
-            addCriterion("settled_time is null");
+        public Criteria andUserNameIsNull() {
+            addCriterion("user_name is null");
             return (Criteria) this;
         }
 
-        public Criteria andSettledTimeIsNotNull() {
-            addCriterion("settled_time is not null");
+        public Criteria andUserNameIsNotNull() {
+            addCriterion("user_name is not null");
             return (Criteria) this;
         }
 
-        public Criteria andSettledTimeEqualTo(Date value) {
-            addCriterion("settled_time =", value, "settledTime");
+        public Criteria andUserNameEqualTo(String value) {
+            addCriterion("user_name =", value, "userName");
             return (Criteria) this;
         }
 
-        public Criteria andSettledTimeNotEqualTo(Date value) {
-            addCriterion("settled_time <>", value, "settledTime");
+        public Criteria andUserNameNotEqualTo(String value) {
+            addCriterion("user_name <>", value, "userName");
             return (Criteria) this;
         }
 
-        public Criteria andSettledTimeGreaterThan(Date value) {
-            addCriterion("settled_time >", value, "settledTime");
+        public Criteria andUserNameGreaterThan(String value) {
+            addCriterion("user_name >", value, "userName");
             return (Criteria) this;
         }
 
-        public Criteria andSettledTimeGreaterThanOrEqualTo(Date value) {
-            addCriterion("settled_time >=", value, "settledTime");
+        public Criteria andUserNameGreaterThanOrEqualTo(String value) {
+            addCriterion("user_name >=", value, "userName");
             return (Criteria) this;
         }
 
-        public Criteria andSettledTimeLessThan(Date value) {
-            addCriterion("settled_time <", value, "settledTime");
+        public Criteria andUserNameLessThan(String value) {
+            addCriterion("user_name <", value, "userName");
             return (Criteria) this;
         }
 
-        public Criteria andSettledTimeLessThanOrEqualTo(Date value) {
-            addCriterion("settled_time <=", value, "settledTime");
+        public Criteria andUserNameLessThanOrEqualTo(String value) {
+            addCriterion("user_name <=", value, "userName");
             return (Criteria) this;
         }
 
-        public Criteria andSettledTimeIn(List<Date> values) {
-            addCriterion("settled_time in", values, "settledTime");
+        public Criteria andUserNameLike(String value) {
+            addCriterion("user_name like", value, "userName");
             return (Criteria) this;
         }
 
-        public Criteria andSettledTimeNotIn(List<Date> values) {
-            addCriterion("settled_time not in", values, "settledTime");
+        public Criteria andUserNameNotLike(String value) {
+            addCriterion("user_name not like", value, "userName");
             return (Criteria) this;
         }
 
-        public Criteria andSettledTimeBetween(Date value1, Date value2) {
-            addCriterion("settled_time between", value1, value2, "settledTime");
+        public Criteria andUserNameIn(List<String> values) {
+            addCriterion("user_name in", values, "userName");
             return (Criteria) this;
         }
 
-        public Criteria andSettledTimeNotBetween(Date value1, Date value2) {
-            addCriterion("settled_time not between", value1, value2, "settledTime");
+        public Criteria andUserNameNotIn(List<String> values) {
+            addCriterion("user_name not in", values, "userName");
             return (Criteria) this;
         }
 
-        public Criteria andPnLIsNull() {
-            addCriterion("pn_l is null");
+        public Criteria andUserNameBetween(String value1, String value2) {
+            addCriterion("user_name between", value1, value2, "userName");
             return (Criteria) this;
         }
 
-        public Criteria andPnLIsNotNull() {
-            addCriterion("pn_l is not null");
+        public Criteria andUserNameNotBetween(String value1, String value2) {
+            addCriterion("user_name not between", value1, value2, "userName");
             return (Criteria) this;
         }
 
-        public Criteria andPnLEqualTo(BigDecimal value) {
-            addCriterion("pn_l =", value, "pnL");
+        public Criteria andEventTypeIsNull() {
+            addCriterion("event_type is null");
             return (Criteria) this;
         }
 
-        public Criteria andPnLNotEqualTo(BigDecimal value) {
-            addCriterion("pn_l <>", value, "pnL");
+        public Criteria andEventTypeIsNotNull() {
+            addCriterion("event_type is not null");
             return (Criteria) this;
         }
 
-        public Criteria andPnLGreaterThan(BigDecimal value) {
-            addCriterion("pn_l >", value, "pnL");
+        public Criteria andEventTypeEqualTo(String value) {
+            addCriterion("event_type =", value, "eventType");
             return (Criteria) this;
         }
 
-        public Criteria andPnLGreaterThanOrEqualTo(BigDecimal value) {
-            addCriterion("pn_l >=", value, "pnL");
+        public Criteria andEventTypeNotEqualTo(String value) {
+            addCriterion("event_type <>", value, "eventType");
             return (Criteria) this;
         }
 
-        public Criteria andPnLLessThan(BigDecimal value) {
-            addCriterion("pn_l <", value, "pnL");
+        public Criteria andEventTypeGreaterThan(String value) {
+            addCriterion("event_type >", value, "eventType");
             return (Criteria) this;
         }
 
-        public Criteria andPnLLessThanOrEqualTo(BigDecimal value) {
-            addCriterion("pn_l <=", value, "pnL");
+        public Criteria andEventTypeGreaterThanOrEqualTo(String value) {
+            addCriterion("event_type >=", value, "eventType");
             return (Criteria) this;
         }
 
-        public Criteria andPnLIn(List<BigDecimal> values) {
-            addCriterion("pn_l in", values, "pnL");
+        public Criteria andEventTypeLessThan(String value) {
+            addCriterion("event_type <", value, "eventType");
             return (Criteria) this;
         }
 
-        public Criteria andPnLNotIn(List<BigDecimal> values) {
-            addCriterion("pn_l not in", values, "pnL");
+        public Criteria andEventTypeLessThanOrEqualTo(String value) {
+            addCriterion("event_type <=", value, "eventType");
             return (Criteria) this;
         }
 
-        public Criteria andPnLBetween(BigDecimal value1, BigDecimal value2) {
-            addCriterion("pn_l between", value1, value2, "pnL");
+        public Criteria andEventTypeLike(String value) {
+            addCriterion("event_type like", value, "eventType");
             return (Criteria) this;
         }
 
-        public Criteria andPnLNotBetween(BigDecimal value1, BigDecimal value2) {
-            addCriterion("pn_l not between", value1, value2, "pnL");
+        public Criteria andEventTypeNotLike(String value) {
+            addCriterion("event_type not like", value, "eventType");
             return (Criteria) this;
         }
 
-        public Criteria andNetReturnIsNull() {
-            addCriterion("net_return is null");
+        public Criteria andEventTypeIn(List<String> values) {
+            addCriterion("event_type in", values, "eventType");
             return (Criteria) this;
         }
 
-        public Criteria andNetReturnIsNotNull() {
-            addCriterion("net_return is not null");
+        public Criteria andEventTypeNotIn(List<String> values) {
+            addCriterion("event_type not in", values, "eventType");
             return (Criteria) this;
         }
 
-        public Criteria andNetReturnEqualTo(BigDecimal value) {
-            addCriterion("net_return =", value, "netReturn");
+        public Criteria andEventTypeBetween(String value1, String value2) {
+            addCriterion("event_type between", value1, value2, "eventType");
             return (Criteria) this;
         }
 
-        public Criteria andNetReturnNotEqualTo(BigDecimal value) {
-            addCriterion("net_return <>", value, "netReturn");
+        public Criteria andEventTypeNotBetween(String value1, String value2) {
+            addCriterion("event_type not between", value1, value2, "eventType");
             return (Criteria) this;
         }
 
-        public Criteria andNetReturnGreaterThan(BigDecimal value) {
-            addCriterion("net_return >", value, "netReturn");
+        public Criteria andEventNameIsNull() {
+            addCriterion("event_name is null");
             return (Criteria) this;
         }
 
-        public Criteria andNetReturnGreaterThanOrEqualTo(BigDecimal value) {
-            addCriterion("net_return >=", value, "netReturn");
+        public Criteria andEventNameIsNotNull() {
+            addCriterion("event_name is not null");
             return (Criteria) this;
         }
 
-        public Criteria andNetReturnLessThan(BigDecimal value) {
-            addCriterion("net_return <", value, "netReturn");
+        public Criteria andEventNameEqualTo(String value) {
+            addCriterion("event_name =", value, "eventName");
             return (Criteria) this;
         }
 
-        public Criteria andNetReturnLessThanOrEqualTo(BigDecimal value) {
-            addCriterion("net_return <=", value, "netReturn");
+        public Criteria andEventNameNotEqualTo(String value) {
+            addCriterion("event_name <>", value, "eventName");
             return (Criteria) this;
         }
 
-        public Criteria andNetReturnIn(List<BigDecimal> values) {
-            addCriterion("net_return in", values, "netReturn");
+        public Criteria andEventNameGreaterThan(String value) {
+            addCriterion("event_name >", value, "eventName");
             return (Criteria) this;
         }
 
-        public Criteria andNetReturnNotIn(List<BigDecimal> values) {
-            addCriterion("net_return not in", values, "netReturn");
+        public Criteria andEventNameGreaterThanOrEqualTo(String value) {
+            addCriterion("event_name >=", value, "eventName");
             return (Criteria) this;
         }
 
-        public Criteria andNetReturnBetween(BigDecimal value1, BigDecimal value2) {
-            addCriterion("net_return between", value1, value2, "netReturn");
+        public Criteria andEventNameLessThan(String value) {
+            addCriterion("event_name <", value, "eventName");
             return (Criteria) this;
         }
 
-        public Criteria andNetReturnNotBetween(BigDecimal value1, BigDecimal value2) {
-            addCriterion("net_return not between", value1, value2, "netReturn");
+        public Criteria andEventNameLessThanOrEqualTo(String value) {
+            addCriterion("event_name <=", value, "eventName");
             return (Criteria) this;
         }
 
-        public Criteria andNetPnLIsNull() {
-            addCriterion("net_pn_l is null");
+        public Criteria andEventNameLike(String value) {
+            addCriterion("event_name like", value, "eventName");
             return (Criteria) this;
         }
 
-        public Criteria andNetPnLIsNotNull() {
-            addCriterion("net_pn_l is not null");
+        public Criteria andEventNameNotLike(String value) {
+            addCriterion("event_name not like", value, "eventName");
             return (Criteria) this;
         }
 
-        public Criteria andNetPnLEqualTo(BigDecimal value) {
-            addCriterion("net_pn_l =", value, "netPnL");
+        public Criteria andEventNameIn(List<String> values) {
+            addCriterion("event_name in", values, "eventName");
             return (Criteria) this;
         }
 
-        public Criteria andNetPnLNotEqualTo(BigDecimal value) {
-            addCriterion("net_pn_l <>", value, "netPnL");
+        public Criteria andEventNameNotIn(List<String> values) {
+            addCriterion("event_name not in", values, "eventName");
             return (Criteria) this;
         }
 
-        public Criteria andNetPnLGreaterThan(BigDecimal value) {
-            addCriterion("net_pn_l >", value, "netPnL");
+        public Criteria andEventNameBetween(String value1, String value2) {
+            addCriterion("event_name between", value1, value2, "eventName");
             return (Criteria) this;
         }
 
-        public Criteria andNetPnLGreaterThanOrEqualTo(BigDecimal value) {
-            addCriterion("net_pn_l >=", value, "netPnL");
-            return (Criteria) this;
-        }
-
-        public Criteria andNetPnLLessThan(BigDecimal value) {
-            addCriterion("net_pn_l <", value, "netPnL");
-            return (Criteria) this;
-        }
-
-        public Criteria andNetPnLLessThanOrEqualTo(BigDecimal value) {
-            addCriterion("net_pn_l <=", value, "netPnL");
-            return (Criteria) this;
-        }
-
-        public Criteria andNetPnLIn(List<BigDecimal> values) {
-            addCriterion("net_pn_l in", values, "netPnL");
-            return (Criteria) this;
-        }
-
-        public Criteria andNetPnLNotIn(List<BigDecimal> values) {
-            addCriterion("net_pn_l not in", values, "netPnL");
-            return (Criteria) this;
-        }
-
-        public Criteria andNetPnLBetween(BigDecimal value1, BigDecimal value2) {
-            addCriterion("net_pn_l between", value1, value2, "netPnL");
-            return (Criteria) this;
-        }
-
-        public Criteria andNetPnLNotBetween(BigDecimal value1, BigDecimal value2) {
-            addCriterion("net_pn_l not between", value1, value2, "netPnL");
+        public Criteria andEventNameNotBetween(String value1, String value2) {
+            addCriterion("event_name not between", value1, value2, "eventName");
             return (Criteria) this;
         }
     }

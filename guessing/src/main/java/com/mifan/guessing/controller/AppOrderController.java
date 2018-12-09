@@ -2,9 +2,12 @@ package com.mifan.guessing.controller;
 
 import com.github.pagehelper.PageInfo;
 import com.mifan.guessing.controller.request.event.EventListRequest;
+import com.mifan.guessing.controller.request.order.SubmitOrderRequest;
 import com.mifan.guessing.controller.response.BaseResponse;
 import com.mifan.guessing.controller.response.event.EventListResponse;
+import com.mifan.guessing.controller.response.order.SubmitOrderResponse;
 import com.mifan.guessing.domain.EventDomain;
+import com.mifan.guessing.domain.OrderDomain;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,11 +27,11 @@ public class AppOrderController extends BaseController{
     private static Logger logger = LogManager.getLogger( AppOrderController.class );
 
     @Autowired
-    private EventDomain eventDomain;
+    private OrderDomain orderDomain;
 
-    public BaseResponse<EventListResponse> eventList(@RequestBody @Validated final EventListRequest eventListRequest ){
+    public BaseResponse<SubmitOrderResponse> submitOrder(@RequestBody @Validated final SubmitOrderRequest submitOrderRequest ){
 
-        PageInfo<EventListResponse> result = eventDomain.eventList(eventListRequest);
+        SubmitOrderResponse result = orderDomain.submitOrder(submitOrderRequest);
         return BaseResponse.generateOKResponseEntity(result);
     }
 

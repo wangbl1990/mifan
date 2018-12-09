@@ -3,14 +3,24 @@ package com.mifan.guessing.domain;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.mifan.guessing.controller.request.event.EventListRequest;
+import com.mifan.guessing.controller.request.order.SubmitOrderRequest;
 import com.mifan.guessing.controller.response.event.EventListResponse;
+import com.mifan.guessing.controller.response.order.SubmitOrderResponse;
 import com.mifan.guessing.dao.mapper.EventMapper;
+import com.mifan.guessing.dao.mapper.TradeOrderMapper;
 import com.mifan.guessing.dao.model.Event;
 import com.mifan.guessing.dao.model.EventExample;
+import com.mifan.guessing.dao.model.TradeOrder;
+import com.mifan.guessing.exception.GuessingErrorCode;
+import com.mifan.guessing.exception.GuessingRunTimeException;
+import com.mifan.guessing.manager.RollingBallManager;
+import com.mifan.guessing.model.enums.OrderStatus;
 import com.mifan.guessing.utils.BeanMapper;
+import com.mifan.guessing.utils.IdMakerUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -21,21 +31,54 @@ import java.util.List;
 public class OrderDomain {
 
     @Autowired
-    private EventMapper eventMapper;
+    private TradeOrderMapper tradeOrderMapper;
+    @Autowired
+    private RollingBallManager rollingBallManager;
 
     /**
-     * 赛事活动列表
-     * @param eventListRequest
+     * 下注
+     * @param submitOrderRequest
      * @return
      */
-    public PageInfo<EventListResponse> eventList(EventListRequest eventListRequest) {
+    public SubmitOrderResponse submitOrder(SubmitOrderRequest submitOrderRequest) {
 
-        EventExample example = new EventExample();
-        PageHelper.startPage(eventListRequest.getPageNum(), eventListRequest.getPageSize(),true);
-        List<Event> events = eventMapper.selectByExample(example);
-        PageInfo<EventListResponse> repageList = new PageInfo(events);
-        List<EventListResponse> eventList = BeanMapper.mapList(events, EventListResponse.class);
-        repageList.setList(eventList);
-        return repageList;
+        //校验用户信息
+
+        //落单
+        TradeOrder tradeOrder = new TradeOrder();
+        tradeOrder.setEventId(submitOrderRequest.getEventId());
+        tradeOrder.setEventName(submitOrderRequest.getEventName());
+        tradeOrder.setEventType(submitOrderRequest.getEventType());
+        tradeOrder.setId(IdMakerUtils.getOrderId());
+        tradeOrder.setMarketId(submitOrderRequest.getMarketId());
+        tradeOrder.setOrderId(tradeOrder.getOrderId());
+        tradeOrder.setRequestAmount(submitOrderRequest.getRequestAmount());
+        tradeOrder.setRequestPrice(submitOrderRequest.getRequestPrice());
+        tradeOrder.setSelectionId(submitOrderRequest.getSelectionId());
+        tradeOrder.setSubmittedTime(new Date());
+        tradeOrder.setStatus(OrderStatus.INIT.getCode());
+        tradeOrder.setUserCode(submitOrderRequest.getUserCode());
+        tradeOrder.setUserName("");
+        tradeOrderMapper.insert(tradeOrder);
+        //冻结用户下单米粒
+
+        //请求滚球下单
+        SubmitOrderResponse response = null;
+        try {
+            TradeOrder order = rollingBallManager.order(tradeOrder, submitOrderRequest);
+            response = BeanMapper.map(order,SubmitOrderResponse.class);
+        }catch (Exception e){
+            //解冻用户米粒
+
+            //更新订单状态投注失败
+            TradeOrder updateOrder = new TradeOrder();
+            updateOrder.setId(tradeOrder.getId());
+            updateOrder.setStatus(OrderStatus.FAIL.getCode());
+            tradeOrderMapper.updateByPrimaryKey(updateOrder);
+            throw new GuessingRunTimeException(GuessingErrorCode.FAIL);
+        }
+
+        return response;
+
     }
 }

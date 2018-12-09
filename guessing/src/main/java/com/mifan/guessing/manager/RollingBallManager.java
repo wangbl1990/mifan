@@ -1,22 +1,33 @@
 package com.mifan.guessing.manager;
 
+import com.alibaba.fastjson.JSONObject;
+import com.mifan.guessing.controller.request.order.SubmitOrderRequest;
 import com.mifan.guessing.dao.model.Event;
-import java.util.List;
 
+import java.util.*;
+
+import com.mifan.guessing.dao.model.TradeOrder;
+import com.mifan.guessing.exception.GuessingErrorCode;
+import com.mifan.guessing.exception.GuessingRunTimeException;
 import com.mifan.guessing.model.EventMarket;
-import com.mifan.guessing.model.TradeOrder;
+import com.mifan.guessing.model.MarketSelection;
 import com.mifan.guessing.utils.DateUtils;
+import com.mifan.guessing.utils.HttpClientUtil;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.tomcat.util.security.MD5Encoder;
-
-import java.time.LocalDateTime;
-import java.time.ZoneOffset;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 /**
  * 滚球接口
  * @auther wangbinlei
  * @create 2018/12/5
  */
+@Component
 public class RollingBallManager {
+
+    private static Logger logger = LogManager.getLogger( RollingBallManager.class );
 
     private static final String vendorIdKey = "vendor_id=";
 
@@ -26,10 +37,11 @@ public class RollingBallManager {
 
     private static final String requestSgin = "request_sgin=";
 
+    @Value("${gunqiu.vendorIdValue}")
     private String vendorIdValue;
-
+    @Value("${gunqiu.vendorAppIdValue}")
     private String vendorAppIdValue;
-
+    @Value("${gunqiu.secretKey}")
     private String secretKey;
 
 
@@ -46,33 +58,127 @@ public class RollingBallManager {
      * 赛事列表查询
      * @return
      */
-    public List<Event> eventList(){
+    public List<Event> eventList(Date beginDate, Date endDate){
 
-
-        return null;
+        Map<String,Object> param = new HashMap<String,Object>();
+        param.put("vendor_id",vendorIdValue);
+        param.put("vendor_app_id",vendorAppIdValue);
+        param.put("request_time",new Date().getTime());
+        param.put("request_sgin",sign());
+        param.put("sport_id",1);
+        param.put("begin_time",beginDate.getTime()/1000);
+        param.put("end_time",endDate.getTime()/1000);
+        logger.info("赛事列表入参:"+ JSONObject.toJSONString(param));
+        String result = HttpClientUtil.post(RollingBallRequestUrl.eventList, null, param);
+        logger.info("赛事列表结果:"+ result);
+        JSONObject jsonObject = JSONObject.parseObject(result);
+        List<Event> eventList = new ArrayList<Event>();
+        if("0".equals(jsonObject.get("errno"))){
+            List<JSONObject> datas = (List<JSONObject>)jsonObject.get("data");
+            for(JSONObject data:datas){
+                Event event = JSONObject.toJavaObject(data,Event.class);
+                eventList.add(event);
+            }
+        }else{
+            logger.error("赛事列表查询失败"+result);
+            throw new GuessingRunTimeException(GuessingErrorCode.FAIL);
+        }
+        return eventList;
     }
 
     /**
      * 赛事详情查询
      * @return
      */
-    public Event eventInfo(){
-        return null;
+    public Event eventInfo(String eventId){
+
+        Map<String,Object> param = new HashMap<String,Object>();
+        param.put("vendor_id",vendorIdValue);
+        param.put("vendor_app_id",vendorAppIdValue);
+        param.put("request_time",new Date().getTime());
+        param.put("request_sgin",sign());
+        param.put("event_id",eventId);
+        logger.info("赛事详情入参:"+ JSONObject.toJSONString(param));
+        String result = HttpClientUtil.post(RollingBallRequestUrl.eventInfo, null, param);
+        logger.info("赛事详情结果:"+ result);
+        JSONObject jsonObject = JSONObject.parseObject(result);
+        Event event = null;
+        if("0".equals(jsonObject.get("errno"))){
+            JSONObject data = (JSONObject)jsonObject.get("data");
+            event = JSONObject.toJavaObject(data,Event.class);
+        }else{
+            logger.error("赛事详情查询失败"+result);
+            throw new GuessingRunTimeException(GuessingErrorCode.FAIL);
+        }
+        return event;
     }
 
     /**
      * 赛事行情查询
      * @return
      */
-    public EventMarket eventMarket(){
-        return null;
+    public List<EventMarket> eventMarket(String eventId){
+        Map<String,Object> param = new HashMap<String,Object>();
+        param.put("vendor_id",vendorIdValue);
+        param.put("vendor_app_id",vendorAppIdValue);
+        param.put("request_time",new Date().getTime());
+        param.put("request_sgin",sign());
+        param.put("event_id",eventId);
+        logger.info("赛事市场入参:"+ JSONObject.toJSONString(param));
+        String result = HttpClientUtil.post(RollingBallRequestUrl.eventMarkets, null, param);
+        logger.info("赛事市场结果:"+ result);
+        JSONObject jsonObject = JSONObject.parseObject(result);
+        List<EventMarket> eventMarketList = new ArrayList<EventMarket>();
+        if("0".equals(jsonObject.get("errno"))){
+            List<JSONObject> datas = (List<JSONObject>)jsonObject.get("data");
+            for(JSONObject data:datas){
+                EventMarket eventMarket = JSONObject.toJavaObject(data,EventMarket.class);
+                List<JSONObject> selectonList = (List<JSONObject>)data.get("selection");
+                List<MarketSelection> marketSelectionList = new ArrayList<MarketSelection>();
+                for(JSONObject selection:selectonList){
+                    MarketSelection marketSelection = JSONObject.toJavaObject(selection,MarketSelection.class);
+                    marketSelectionList.add(marketSelection);
+                }
+                eventMarket.setMarketSelectionList(marketSelectionList);
+                eventMarketList.add(eventMarket);
+            }
+        }else{
+            logger.error("赛事市场查询失败"+result);
+            throw new GuessingRunTimeException(GuessingErrorCode.FAIL);
+        }
+        return eventMarketList;
     }
 
     /**
      * 下单
      */
-    public void order(){
-
+    public TradeOrder order(TradeOrder tradeOrder, SubmitOrderRequest submitOrderRequest){
+        Map<String,Object> param = new HashMap<String,Object>();
+        param.put("vendor_id",vendorIdValue);
+        param.put("vendor_app_id",vendorAppIdValue);
+        param.put("request_time",new Date().getTime());
+        param.put("request_sgin",sign());
+        param.put("correlation_order_id",tradeOrder.getOrderId());
+        param.put("vendor_player_id",tradeOrder.getUserCode());
+        param.put("event_id",tradeOrder.getEventId());
+        param.put("market_id",tradeOrder.getMarketId());
+        param.put("selection_id",tradeOrder.getSelectionId());
+        param.put("placed_result",submitOrderRequest.getPlaceResult());
+        param.put("request_price",tradeOrder.getRequestPrice());
+        param.put("request_amount",tradeOrder.getRequestAmount());
+        logger.info("下单入参:"+ JSONObject.toJSONString(param));
+        String result = HttpClientUtil.post(RollingBallRequestUrl.eventInfo, null, param);
+        logger.info("下单结果:"+ result);
+        JSONObject jsonObject = JSONObject.parseObject(result);
+        TradeOrder orderResult = null;
+        if("0".equals(jsonObject.get("errno"))){
+            JSONObject data = (JSONObject)jsonObject.get("data");
+            orderResult = JSONObject.toJavaObject(data,TradeOrder.class);
+        }else{
+            logger.error("下单失败"+result);
+            throw new GuessingRunTimeException(GuessingErrorCode.FAIL);
+        }
+        return orderResult;
     }
 
     /**

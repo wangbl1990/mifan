@@ -8,10 +8,6 @@ public class TradeOrder {
 
     private String orderId;
 
-    private String outOrderId;
-
-    private String vendorPlayerId;
-
     private String eventId;
 
     private String marketId;
@@ -22,25 +18,17 @@ public class TradeOrder {
 
     private BigDecimal requestPrice;
 
-    private BigDecimal fillAmount;
-
-    private BigDecimal fillPrice;
-
-    private String placedResult;
-
     private String status;
 
     private Date submittedTime;
 
-    private String settledResult;
+    private String userCode;
 
-    private Date settledTime;
+    private String userName;
 
-    private BigDecimal pnL;
+    private String eventType;
 
-    private BigDecimal netReturn;
-
-    private BigDecimal netPnL;
+    private String eventName;
 
     public String getId() {
         return id;
@@ -56,22 +44,6 @@ public class TradeOrder {
 
     public void setOrderId(String orderId) {
         this.orderId = orderId == null ? null : orderId.trim();
-    }
-
-    public String getOutOrderId() {
-        return outOrderId;
-    }
-
-    public void setOutOrderId(String outOrderId) {
-        this.outOrderId = outOrderId == null ? null : outOrderId.trim();
-    }
-
-    public String getVendorPlayerId() {
-        return vendorPlayerId;
-    }
-
-    public void setVendorPlayerId(String vendorPlayerId) {
-        this.vendorPlayerId = vendorPlayerId == null ? null : vendorPlayerId.trim();
     }
 
     public String getEventId() {
@@ -114,30 +86,6 @@ public class TradeOrder {
         this.requestPrice = requestPrice;
     }
 
-    public BigDecimal getFillAmount() {
-        return fillAmount;
-    }
-
-    public void setFillAmount(BigDecimal fillAmount) {
-        this.fillAmount = fillAmount;
-    }
-
-    public BigDecimal getFillPrice() {
-        return fillPrice;
-    }
-
-    public void setFillPrice(BigDecimal fillPrice) {
-        this.fillPrice = fillPrice;
-    }
-
-    public String getPlacedResult() {
-        return placedResult;
-    }
-
-    public void setPlacedResult(String placedResult) {
-        this.placedResult = placedResult == null ? null : placedResult.trim();
-    }
-
     public String getStatus() {
         return status;
     }
@@ -154,43 +102,35 @@ public class TradeOrder {
         this.submittedTime = submittedTime;
     }
 
-    public String getSettledResult() {
-        return settledResult;
+    public String getUserCode() {
+        return userCode;
     }
 
-    public void setSettledResult(String settledResult) {
-        this.settledResult = settledResult == null ? null : settledResult.trim();
+    public void setUserCode(String userCode) {
+        this.userCode = userCode == null ? null : userCode.trim();
     }
 
-    public Date getSettledTime() {
-        return settledTime;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setSettledTime(Date settledTime) {
-        this.settledTime = settledTime;
+    public void setUserName(String userName) {
+        this.userName = userName == null ? null : userName.trim();
     }
 
-    public BigDecimal getPnL() {
-        return pnL;
+    public String getEventType() {
+        return eventType;
     }
 
-    public void setPnL(BigDecimal pnL) {
-        this.pnL = pnL;
+    public void setEventType(String eventType) {
+        this.eventType = eventType == null ? null : eventType.trim();
     }
 
-    public BigDecimal getNetReturn() {
-        return netReturn;
+    public String getEventName() {
+        return eventName;
     }
 
-    public void setNetReturn(BigDecimal netReturn) {
-        this.netReturn = netReturn;
-    }
-
-    public BigDecimal getNetPnL() {
-        return netPnL;
-    }
-
-    public void setNetPnL(BigDecimal netPnL) {
-        this.netPnL = netPnL;
+    public void setEventName(String eventName) {
+        this.eventName = eventName == null ? null : eventName.trim();
     }
 }

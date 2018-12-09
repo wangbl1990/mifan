@@ -60,7 +60,7 @@ public class HttpClientUtil {
 
 	public static String post(String url,
 							  Map<String, String> headMap,
-							  Map<String, String> params){
+							  Map<String, Object> params){
 		try{
 			HttpClient httpclient = new HttpClient();
 			httpclient.getParams().setParameter(HttpMethodParams.HTTP_CONTENT_CHARSET, "UTF-8");
@@ -73,7 +73,7 @@ public class HttpClientUtil {
 
 			if(null != params){
 				for(String pkey : params.keySet()){
-					httpPost.addParameter(pkey, params.get(pkey));
+					httpPost.addParameter(pkey, String.valueOf(params.get(pkey)));
 				}
 			}
 			httpclient.executeMethod(httpPost);
