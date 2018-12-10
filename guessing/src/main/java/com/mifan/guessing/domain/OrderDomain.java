@@ -7,10 +7,9 @@ import com.mifan.guessing.controller.request.order.SubmitOrderRequest;
 import com.mifan.guessing.controller.response.event.EventListResponse;
 import com.mifan.guessing.controller.response.order.SubmitOrderResponse;
 import com.mifan.guessing.dao.mapper.EventMapper;
+import com.mifan.guessing.dao.mapper.OrderSettleMapper;
 import com.mifan.guessing.dao.mapper.TradeOrderMapper;
-import com.mifan.guessing.dao.model.Event;
-import com.mifan.guessing.dao.model.EventExample;
-import com.mifan.guessing.dao.model.TradeOrder;
+import com.mifan.guessing.dao.model.*;
 import com.mifan.guessing.exception.GuessingErrorCode;
 import com.mifan.guessing.exception.GuessingRunTimeException;
 import com.mifan.guessing.manager.RollingBallManager;
@@ -34,6 +33,8 @@ public class OrderDomain {
     private TradeOrderMapper tradeOrderMapper;
     @Autowired
     private RollingBallManager rollingBallManager;
+    @Autowired
+    private OrderSettleMapper orderSettleMapper;
 
     /**
      * 下注
@@ -80,5 +81,29 @@ public class OrderDomain {
 
         return response;
 
+    }
+
+    /**
+     * 结算
+     * @param orderSettle
+     */
+    public void settle(OrderSettle orderSettle){
+
+        //跟新原订单已结算
+        TradeOrderExample tradeOrderExample = new TradeOrderExample();
+        tradeOrderExample.createCriteria().andIdEqualTo(orderSettle.getOrderId()).andStatusEqualTo(OrderStatus.PAYED.getCode());
+
+        TradeOrder tradeOrder = new TradeOrder();
+        tradeOrder.setStatus(OrderStatus.SETTLED.getCode());
+        int result = tradeOrderMapper.updateByExampleSelective(tradeOrder, tradeOrderExample);
+        if(1 == result){
+            //新增结算单
+            orderSettle.setCreateTime(new Date());
+            orderSettle.setId(IdMakerUtils.getOrderId());
+            orderSettleMapper.insertSelective(orderSettle);
+
+            //根据结算盈亏增加或者扣减用户米粒值
+
+        }
     }
 }

@@ -30,6 +30,12 @@ public class TradeOrder {
 
     private String eventName;
 
+    private Long fillAmount;
+
+    private Long fillPrice;
+
+    private String placedResult;
+
     public String getId() {
         return id;
     }
@@ -132,5 +138,29 @@ public class TradeOrder {
 
     public void setEventName(String eventName) {
         this.eventName = eventName == null ? null : eventName.trim();
+    }
+
+    public Long getFillAmount() {
+        return fillAmount;
+    }
+
+    public void setFillAmount(Long fillAmount) {
+        this.fillAmount = fillAmount;
+    }
+
+    public Long getFillPrice() {
+        return fillPrice;
+    }
+
+    public void setFillPrice(Long fillPrice) {
+        this.fillPrice = fillPrice;
+    }
+
+    public String getPlacedResult() {
+        return placedResult;
+    }
+
+    public void setPlacedResult(String placedResult) {
+        this.placedResult = placedResult == null ? null : placedResult.trim();
     }
 }

@@ -985,6 +985,196 @@ public class TradeOrderExample {
             addCriterion("event_name not between", value1, value2, "eventName");
             return (Criteria) this;
         }
+
+        public Criteria andFillAmountIsNull() {
+            addCriterion("fill_amount is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFillAmountIsNotNull() {
+            addCriterion("fill_amount is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFillAmountEqualTo(Long value) {
+            addCriterion("fill_amount =", value, "fillAmount");
+            return (Criteria) this;
+        }
+
+        public Criteria andFillAmountNotEqualTo(Long value) {
+            addCriterion("fill_amount <>", value, "fillAmount");
+            return (Criteria) this;
+        }
+
+        public Criteria andFillAmountGreaterThan(Long value) {
+            addCriterion("fill_amount >", value, "fillAmount");
+            return (Criteria) this;
+        }
+
+        public Criteria andFillAmountGreaterThanOrEqualTo(Long value) {
+            addCriterion("fill_amount >=", value, "fillAmount");
+            return (Criteria) this;
+        }
+
+        public Criteria andFillAmountLessThan(Long value) {
+            addCriterion("fill_amount <", value, "fillAmount");
+            return (Criteria) this;
+        }
+
+        public Criteria andFillAmountLessThanOrEqualTo(Long value) {
+            addCriterion("fill_amount <=", value, "fillAmount");
+            return (Criteria) this;
+        }
+
+        public Criteria andFillAmountIn(List<Long> values) {
+            addCriterion("fill_amount in", values, "fillAmount");
+            return (Criteria) this;
+        }
+
+        public Criteria andFillAmountNotIn(List<Long> values) {
+            addCriterion("fill_amount not in", values, "fillAmount");
+            return (Criteria) this;
+        }
+
+        public Criteria andFillAmountBetween(Long value1, Long value2) {
+            addCriterion("fill_amount between", value1, value2, "fillAmount");
+            return (Criteria) this;
+        }
+
+        public Criteria andFillAmountNotBetween(Long value1, Long value2) {
+            addCriterion("fill_amount not between", value1, value2, "fillAmount");
+            return (Criteria) this;
+        }
+
+        public Criteria andFillPriceIsNull() {
+            addCriterion("fill_price is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFillPriceIsNotNull() {
+            addCriterion("fill_price is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFillPriceEqualTo(Long value) {
+            addCriterion("fill_price =", value, "fillPrice");
+            return (Criteria) this;
+        }
+
+        public Criteria andFillPriceNotEqualTo(Long value) {
+            addCriterion("fill_price <>", value, "fillPrice");
+            return (Criteria) this;
+        }
+
+        public Criteria andFillPriceGreaterThan(Long value) {
+            addCriterion("fill_price >", value, "fillPrice");
+            return (Criteria) this;
+        }
+
+        public Criteria andFillPriceGreaterThanOrEqualTo(Long value) {
+            addCriterion("fill_price >=", value, "fillPrice");
+            return (Criteria) this;
+        }
+
+        public Criteria andFillPriceLessThan(Long value) {
+            addCriterion("fill_price <", value, "fillPrice");
+            return (Criteria) this;
+        }
+
+        public Criteria andFillPriceLessThanOrEqualTo(Long value) {
+            addCriterion("fill_price <=", value, "fillPrice");
+            return (Criteria) this;
+        }
+
+        public Criteria andFillPriceIn(List<Long> values) {
+            addCriterion("fill_price in", values, "fillPrice");
+            return (Criteria) this;
+        }
+
+        public Criteria andFillPriceNotIn(List<Long> values) {
+            addCriterion("fill_price not in", values, "fillPrice");
+            return (Criteria) this;
+        }
+
+        public Criteria andFillPriceBetween(Long value1, Long value2) {
+            addCriterion("fill_price between", value1, value2, "fillPrice");
+            return (Criteria) this;
+        }
+
+        public Criteria andFillPriceNotBetween(Long value1, Long value2) {
+            addCriterion("fill_price not between", value1, value2, "fillPrice");
+            return (Criteria) this;
+        }
+
+        public Criteria andPlacedResultIsNull() {
+            addCriterion("placed_result is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPlacedResultIsNotNull() {
+            addCriterion("placed_result is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPlacedResultEqualTo(String value) {
+            addCriterion("placed_result =", value, "placedResult");
+            return (Criteria) this;
+        }
+
+        public Criteria andPlacedResultNotEqualTo(String value) {
+            addCriterion("placed_result <>", value, "placedResult");
+            return (Criteria) this;
+        }
+
+        public Criteria andPlacedResultGreaterThan(String value) {
+            addCriterion("placed_result >", value, "placedResult");
+            return (Criteria) this;
+        }
+
+        public Criteria andPlacedResultGreaterThanOrEqualTo(String value) {
+            addCriterion("placed_result >=", value, "placedResult");
+            return (Criteria) this;
+        }
+
+        public Criteria andPlacedResultLessThan(String value) {
+            addCriterion("placed_result <", value, "placedResult");
+            return (Criteria) this;
+        }
+
+        public Criteria andPlacedResultLessThanOrEqualTo(String value) {
+            addCriterion("placed_result <=", value, "placedResult");
+            return (Criteria) this;
+        }
+
+        public Criteria andPlacedResultLike(String value) {
+            addCriterion("placed_result like", value, "placedResult");
+            return (Criteria) this;
+        }
+
+        public Criteria andPlacedResultNotLike(String value) {
+            addCriterion("placed_result not like", value, "placedResult");
+            return (Criteria) this;
+        }
+
+        public Criteria andPlacedResultIn(List<String> values) {
+            addCriterion("placed_result in", values, "placedResult");
+            return (Criteria) this;
+        }
+
+        public Criteria andPlacedResultNotIn(List<String> values) {
+            addCriterion("placed_result not in", values, "placedResult");
+            return (Criteria) this;
+        }
+
+        public Criteria andPlacedResultBetween(String value1, String value2) {
+            addCriterion("placed_result between", value1, value2, "placedResult");
+            return (Criteria) this;
+        }
+
+        public Criteria andPlacedResultNotBetween(String value1, String value2) {
+            addCriterion("placed_result not between", value1, value2, "placedResult");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {
