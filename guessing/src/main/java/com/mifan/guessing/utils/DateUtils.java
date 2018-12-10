@@ -29,6 +29,15 @@ public class DateUtils {
         return resultDate;
     }
 
+    public static Date addMinutes(Date date,int minutes){
+        Calendar c = Calendar.getInstance();
+        c.setTime(date);
+        c.add(Calendar.MINUTE, minutes);
+        c.set(Calendar.SECOND, 00);
+        Date resultDate = c.getTime();
+        return resultDate;
+    }
+
 
     public static Date paseDateYYYYMMDD(Date date){
         Calendar c = Calendar.getInstance();

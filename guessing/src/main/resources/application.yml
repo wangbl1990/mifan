@@ -26,8 +26,8 @@ spring:
         maxOpenPreparedStatements: 20
 
 mybatis:
-    mapper-locations: classpath:mapping/*.xml #注意：一定要对应mapper映射xml文件的所在路径
-    type-aliases-package: com.winter.model # 注意：对应实体类的路径
+    mapper-locations: classpath:mybatis/*.xml #注意：一定要对应mapper映射xml文件的所在路径
+    type-aliases-package: om.mifan.guessing.dao.model # 注意：对应实体类的路径
 
 #pagehelper分页插件
 pagehelper:
@@ -51,3 +51,8 @@ gunqiu:
     vendorIdValue: 1521
     vendorAppIdValue: 1001
     secretKey: test001
+
+elaticjob:
+    zookeeper:
+        server-lists: 10.170.1.44:2181
+        namespace: elastic-job-lite-springboot

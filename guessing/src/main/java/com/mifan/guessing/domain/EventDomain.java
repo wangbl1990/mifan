@@ -11,6 +11,7 @@ import com.mifan.guessing.dao.mapper.SubscribeEventMapper;
 import com.mifan.guessing.dao.model.Event;
 import com.mifan.guessing.dao.model.EventExample;
 import com.mifan.guessing.dao.model.SubscribeEvent;
+import com.mifan.guessing.dao.model.SubscribeEventExample;
 import com.mifan.guessing.manager.RollingBallManager;
 import com.mifan.guessing.utils.BeanMapper;
 import com.mifan.guessing.utils.DateUtils;
@@ -85,5 +86,23 @@ public class EventDomain {
         subscribeEvent.setCreateTime(new Date());
         int result = subscribeEventMapper.insertSelective(subscribeEvent);
         return result;
+    }
+
+    /**
+     * 发送预约短信
+     */
+    public void sendSubscribeMsg(){
+
+        //查询5分钟后开始的比赛
+        SubscribeEventExample eventExample = new SubscribeEventExample();
+        Date date = DateUtils.addMinutes(new Date(),5);
+        eventExample.createCriteria().andEventTimeEqualTo(date);
+        List<SubscribeEvent> subscribeEvents = subscribeEventMapper.selectByExample(eventExample);
+
+        for(SubscribeEvent subscribeEvent : subscribeEvents){
+
+            //TODO：发送短信
+
+        }
     }
 }

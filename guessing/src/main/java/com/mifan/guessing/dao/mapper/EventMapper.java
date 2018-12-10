@@ -3,8 +3,10 @@ package com.mifan.guessing.dao.mapper;
 import com.mifan.guessing.dao.model.Event;
 import com.mifan.guessing.dao.model.EventExample;
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+@Mapper
 public interface EventMapper {
     int countByExample(EventExample example);
 
