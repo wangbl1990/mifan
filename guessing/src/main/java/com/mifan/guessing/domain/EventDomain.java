@@ -100,7 +100,6 @@ public class EventDomain {
         List<SubscribeEvent> subscribeEvents = subscribeEventMapper.selectByExample(eventExample);
 
         for(SubscribeEvent subscribeEvent : subscribeEvents){
-
             //TODO：发送短信
 
         }

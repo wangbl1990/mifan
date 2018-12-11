@@ -2,8 +2,9 @@ package com.mifan.guessing.exception;
 
 public enum GuessingErrorCode {
 
-    SUCCESS(10000, "成功"),
-    FAIL(99999, "系统异常"),
+    SUCCESS(0, "成功"),
+    SYSTEM_ERROR(700, "系统异常"),
+    NOT_LOGIN(203, "用户没登录"),
     ;
 
     private int value;

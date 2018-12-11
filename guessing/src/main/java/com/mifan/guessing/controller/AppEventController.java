@@ -1,6 +1,7 @@
 package com.mifan.guessing.controller;
 
 import com.github.pagehelper.PageInfo;
+import com.mifan.guessing.Access;
 import com.mifan.guessing.controller.request.event.EventDetailRequest;
 import com.mifan.guessing.controller.request.event.EventListRequest;
 import com.mifan.guessing.controller.request.event.SubscribeEventRequest;
@@ -66,6 +67,7 @@ public class AppEventController extends BaseController{
     @ApiOperation(value = "预约赛事" , notes = "预约赛事" )
     @ApiImplicitParam(name = "subscribeEventRequest" , value = "预约赛事" , required = true , dataType = "SubscribeEventRequest" )
     @RequestMapping( value = "/subscribeEvent" , method = RequestMethod.POST , produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @Access
     public BaseResponse<Integer> subscribeEvent(@RequestBody @Validated final SubscribeEventRequest subscribeEventRequest ){
         Integer result = eventDomain.subscribeEvent(subscribeEventRequest);
         return BaseResponse.generateOKResponseEntity(result);

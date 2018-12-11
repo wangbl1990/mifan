@@ -1,6 +1,7 @@
 package com.mifan.guessing.controller;
 
 import com.github.pagehelper.PageInfo;
+import com.mifan.guessing.Access;
 import com.mifan.guessing.controller.request.event.EventListRequest;
 import com.mifan.guessing.controller.request.event.SubscribeEventRequest;
 import com.mifan.guessing.controller.request.order.SubmitOrderRequest;
@@ -37,6 +38,7 @@ public class AppOrderController extends BaseController{
     @ApiOperation(value = "下注" , notes = "下注" )
     @ApiImplicitParam(name = "submitOrderRequest" , value = "下注" , required = true , dataType = "SubmitOrderRequest" )
     @RequestMapping( value = "/submitOrder" , method = RequestMethod.POST , produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @Access
     public BaseResponse<SubmitOrderResponse> submitOrder(@RequestBody @Validated final SubmitOrderRequest submitOrderRequest ){
         SubmitOrderResponse result = orderDomain.submitOrder(submitOrderRequest);
         return BaseResponse.generateOKResponseEntity(result);

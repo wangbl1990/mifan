@@ -25,8 +25,8 @@ public class GuessingApplication {
 	}
 
 	@Bean
-	public JwtAuthenticationFilter jwtAuthenticationFilter() {
-		return new JwtAuthenticationFilter();
+	public UserAuthenticationFilter jwtAuthenticationFilter() {
+		return new UserAuthenticationFilter();
 	}
 
 }

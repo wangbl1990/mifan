@@ -14,7 +14,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.1.1.RELEASE</version>
+		<version>1.5.13.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
@@ -89,10 +89,6 @@
 					<artifactId>mybatis-spring-boot-autoconfigure</artifactId>
 					<groupId>org.mybatis.spring.boot</groupId>
 				</exclusion>
-				<exclusion>
-					<artifactId>mybatis-spring-boot-starter</artifactId>
-					<groupId>org.mybatis.spring.boot</groupId>
-				</exclusion>
 			</exclusions>
 		</dependency>
 
@@ -159,6 +155,57 @@
 					<groupId>log4j</groupId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>tv.zhangyu</groupId>
+			<artifactId>zhangyu-commons</artifactId>
+			<version>1.1.15.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>tv.zhangyu</groupId>
+			<artifactId>zhangyu-rpc</artifactId>
+			<version>1.1.9</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbo</artifactId>
+			<version>2.5.7</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>com.101tec</groupId>
+			<artifactId>zkclient</artifactId>
+			<version>0.9</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.zookeeper</groupId>
+			<artifactId>zookeeper</artifactId>
+			<version>3.4.6</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-log4j12</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>log4j</groupId>
+					<artifactId>log4j</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>com.cloopen</groupId>
+			<artifactId>CCPRestSDK</artifactId>
+			<version>2.6</version>
 		</dependency>
 
 	</dependencies>

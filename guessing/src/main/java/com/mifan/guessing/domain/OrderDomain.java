@@ -2,6 +2,7 @@ package com.mifan.guessing.domain;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.mifan.guessing.Access;
 import com.mifan.guessing.controller.request.event.EventListRequest;
 import com.mifan.guessing.controller.request.order.SubmitOrderRequest;
 import com.mifan.guessing.controller.response.event.EventListResponse;
@@ -18,6 +19,8 @@ import com.mifan.guessing.utils.BeanMapper;
 import com.mifan.guessing.utils.IdMakerUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import tv.zhangyu.rpcservice.UserService;
+import tv.zhangyu.rpcservice.base.User;
 
 import java.util.Date;
 import java.util.List;
@@ -35,6 +38,8 @@ public class OrderDomain {
     private RollingBallManager rollingBallManager;
     @Autowired
     private OrderSettleMapper orderSettleMapper;
+    @Autowired
+    private UserService userService;
 
     /**
      * 下注
@@ -42,9 +47,8 @@ public class OrderDomain {
      * @return
      */
     public SubmitOrderResponse submitOrder(SubmitOrderRequest submitOrderRequest) {
-
         //校验用户信息
-
+        User user = userService.getUserByUserId(submitOrderRequest.getUserCode());
         //落单
         TradeOrder tradeOrder = new TradeOrder();
         tradeOrder.setEventId(submitOrderRequest.getEventId());
@@ -59,7 +63,7 @@ public class OrderDomain {
         tradeOrder.setSubmittedTime(new Date());
         tradeOrder.setStatus(OrderStatus.INIT.getCode());
         tradeOrder.setUserCode(submitOrderRequest.getUserCode());
-        tradeOrder.setUserName("");
+        tradeOrder.setUserName(user.getNickname());
         tradeOrderMapper.insert(tradeOrder);
         //冻结用户下单米粒
 
@@ -76,7 +80,7 @@ public class OrderDomain {
             updateOrder.setId(tradeOrder.getId());
             updateOrder.setStatus(OrderStatus.FAIL.getCode());
             tradeOrderMapper.updateByPrimaryKey(updateOrder);
-            throw new GuessingRunTimeException(GuessingErrorCode.FAIL);
+            throw new GuessingRunTimeException(GuessingErrorCode.SYSTEM_ERROR);
         }
 
         return response;

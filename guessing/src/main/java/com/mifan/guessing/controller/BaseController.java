@@ -22,7 +22,10 @@ public abstract class BaseController {
 
     @ModelAttribute
     public void init(HttpServletRequest request){
-
+        Boolean error = (Boolean) request.getAttribute( "error" );
+        if( null != error && error ){
+            throw new GuessingRunTimeException(GuessingErrorCode.NOT_LOGIN);
+        }
     }
 
     @ExceptionHandler(GuessingRunTimeException.class)
@@ -36,14 +39,14 @@ public abstract class BaseController {
     public BaseResponse<String> exceptionProcess(HttpServletRequest request, HttpServletResponse
             response, Exception ex) {
         logger.error(ex);
-        return BaseResponse.generateBadResponseEntity(GuessingErrorCode.FAIL.getMessage(),null);
+        return BaseResponse.generateBadResponseEntity(GuessingErrorCode.SYSTEM_ERROR.getMessage(),null);
     }
 
     @ExceptionHandler(RuntimeException.class)
     public BaseResponse<String> runtimeExceptionProcess(HttpServletRequest request, HttpServletResponse
             response, RuntimeException ex) {
         logger.error(ex);
-        return BaseResponse.generateBadResponseEntity(GuessingErrorCode.FAIL.getMessage(),null);
+        return BaseResponse.generateBadResponseEntity(GuessingErrorCode.SYSTEM_ERROR.getMessage(),null);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -61,7 +64,7 @@ public abstract class BaseController {
     @ExceptionHandler(HttpMessageNotReadableException.class)
     @ResponseStatus(value = HttpStatus.BAD_REQUEST)
     public BaseResponse<String> handleHttpMessageNotReadableException(HttpMessageNotReadableException ex) {
-        return BaseResponse.generateBadResponseEntity(GuessingErrorCode.FAIL.getMessage(),null);
+        return BaseResponse.generateBadResponseEntity(GuessingErrorCode.SYSTEM_ERROR.getMessage(),null);
     }
 
 }
