@@ -894,6 +894,76 @@ public class OrderSettleExample {
             addCriterion("create_time not between", value1, value2, "createTime");
             return (Criteria) this;
         }
+
+        public Criteria andUserNikeNameIsNull() {
+            addCriterion("user_nike_name is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserNikeNameIsNotNull() {
+            addCriterion("user_nike_name is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserNikeNameEqualTo(String value) {
+            addCriterion("user_nike_name =", value, "userNikeName");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserNikeNameNotEqualTo(String value) {
+            addCriterion("user_nike_name <>", value, "userNikeName");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserNikeNameGreaterThan(String value) {
+            addCriterion("user_nike_name >", value, "userNikeName");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserNikeNameGreaterThanOrEqualTo(String value) {
+            addCriterion("user_nike_name >=", value, "userNikeName");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserNikeNameLessThan(String value) {
+            addCriterion("user_nike_name <", value, "userNikeName");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserNikeNameLessThanOrEqualTo(String value) {
+            addCriterion("user_nike_name <=", value, "userNikeName");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserNikeNameLike(String value) {
+            addCriterion("user_nike_name like", value, "userNikeName");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserNikeNameNotLike(String value) {
+            addCriterion("user_nike_name not like", value, "userNikeName");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserNikeNameIn(List<String> values) {
+            addCriterion("user_nike_name in", values, "userNikeName");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserNikeNameNotIn(List<String> values) {
+            addCriterion("user_nike_name not in", values, "userNikeName");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserNikeNameBetween(String value1, String value2) {
+            addCriterion("user_nike_name between", value1, value2, "userNikeName");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserNikeNameNotBetween(String value1, String value2) {
+            addCriterion("user_nike_name not between", value1, value2, "userNikeName");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * @auther wangbinlei
  * @create 2018/12/4
@@ -37,8 +39,8 @@ public class AppBannerController extends BaseController{
     @ApiOperation(value = "banner列表" , notes = "banner列表" )
     @ApiImplicitParam(name = "appBannerListRequest" , value = "banner列表" , required = true , dataType = "AppBannerListRequest" )
     @RequestMapping( value = "/list" , method = RequestMethod.POST , produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public BaseResponse<PageInfo<AppBannerListResponse>> list(@RequestBody @Validated final AppBannerListRequest appBannerListRequest ){
-        PageInfo<AppBannerListResponse> result = bannerDomain.listForApp(appBannerListRequest);
+    public BaseResponse<List<AppBannerListResponse>> list(@RequestBody @Validated final AppBannerListRequest appBannerListRequest ){
+        List<AppBannerListResponse> result = bannerDomain.listForApp(appBannerListRequest);
         return BaseResponse.generateOKResponseEntity(result);
     }
 }

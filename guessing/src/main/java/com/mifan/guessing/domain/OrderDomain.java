@@ -4,9 +4,13 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.mifan.guessing.Access;
 import com.mifan.guessing.controller.request.event.EventListRequest;
+import com.mifan.guessing.controller.request.order.BossOrderListRequest;
+import com.mifan.guessing.controller.request.order.BossSettleOrderListRequest;
 import com.mifan.guessing.controller.request.order.OrderSettleRequest;
 import com.mifan.guessing.controller.request.order.SubmitOrderRequest;
 import com.mifan.guessing.controller.response.event.EventListResponse;
+import com.mifan.guessing.controller.response.order.BossOrderListResponse;
+import com.mifan.guessing.controller.response.order.BossSettleOrderListResponse;
 import com.mifan.guessing.controller.response.order.SubmitOrderResponse;
 import com.mifan.guessing.dao.mapper.EventMapper;
 import com.mifan.guessing.dao.mapper.OrderSettleMapper;
@@ -18,6 +22,7 @@ import com.mifan.guessing.manager.RollingBallManager;
 import com.mifan.guessing.model.enums.OrderStatus;
 import com.mifan.guessing.utils.BeanMapper;
 import com.mifan.guessing.utils.IdMakerUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import tv.zhangyu.rpcservice.MoneyService;
@@ -40,11 +45,11 @@ public class OrderDomain {
     @Autowired
     private RollingBallManager rollingBallManager;
     @Autowired
-    private OrderSettleMapper orderSettleMapper;
-    @Autowired
     private UserService userService;
     @Autowired
     private MoneyService moneyService;
+    @Autowired
+    private OrderSettleMapper orderSettleMapper;
 
     /**
      * 下注
@@ -135,5 +140,52 @@ public class OrderDomain {
 
             }
         }
+    }
+
+    /**
+     * 管理后台订单列表
+     * @param bossOrderListRequest
+     * @return
+     */
+    public PageInfo<BossOrderListResponse> orderList(BossOrderListRequest bossOrderListRequest) {
+
+        TradeOrderExample example = new TradeOrderExample();
+        TradeOrderExample.Criteria criteria = example.createCriteria();
+        if (StringUtils.isNotEmpty(bossOrderListRequest.getUserName())) {
+            criteria.andUserNameLike("%" + bossOrderListRequest.getUserName() + "%");
+        }
+        if (StringUtils.isNotEmpty(bossOrderListRequest.getOrderId())) {
+            criteria.andOrderIdEqualTo(bossOrderListRequest.getOrderId());
+        }
+        PageHelper.startPage(bossOrderListRequest.getPageNum(), bossOrderListRequest.getPageSize(), true);
+        List<TradeOrder> tradeOrders = tradeOrderMapper.selectByExample(example);
+        PageInfo<BossOrderListResponse> pageInfo = new PageInfo(tradeOrders);
+        if (null != tradeOrders) {
+            pageInfo.setList(BeanMapper.mapList(tradeOrders, BossOrderListResponse.class));
+        }
+        return pageInfo;
+    }
+
+    /**
+     * 管理后台注单列表
+     * @param bossSettleOrderListRequest
+     * @return
+     */
+    public PageInfo<BossSettleOrderListResponse> settleOrderList(BossSettleOrderListRequest bossSettleOrderListRequest) {
+        OrderSettleExample example = new OrderSettleExample();
+        OrderSettleExample.Criteria criteria = example.createCriteria();
+        if (StringUtils.isNotEmpty(bossSettleOrderListRequest.getUserName())) {
+            criteria.andUserNikeNameLike("%" + bossSettleOrderListRequest.getUserName() + "%");
+        }
+        if (StringUtils.isNotEmpty(bossSettleOrderListRequest.getOrderId())) {
+            criteria.andOrderIdEqualTo(bossSettleOrderListRequest.getOrderId());
+        }
+        PageHelper.startPage(bossSettleOrderListRequest.getPageNum(), bossSettleOrderListRequest.getPageSize(), true);
+        List<OrderSettle> tradeOrders = orderSettleMapper.selectByExample(example);
+        PageInfo<BossSettleOrderListResponse> pageInfo = new PageInfo(tradeOrders);
+        if (null != tradeOrders) {
+            pageInfo.setList(BeanMapper.mapList(tradeOrders, BossSettleOrderListResponse.class));
+        }
+        return pageInfo;
     }
 }

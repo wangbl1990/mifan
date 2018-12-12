@@ -27,6 +27,8 @@ public class OrderSettle {
 
     private Date createTime;
 
+    private String userNikeName;
+
     public String getId() {
         return id;
     }
@@ -121,5 +123,13 @@ public class OrderSettle {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public String getUserNikeName() {
+        return userNikeName;
+    }
+
+    public void setUserNikeName(String userNikeName) {
+        this.userNikeName = userNikeName == null ? null : userNikeName.trim();
     }
 }

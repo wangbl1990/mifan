@@ -105,13 +105,10 @@ public class BannerDomain {
      * @param appBannerListRequest
      * @return
      */
-    public PageInfo<AppBannerListResponse> listForApp(AppBannerListRequest appBannerListRequest) {
+    public List<AppBannerListResponse> listForApp(AppBannerListRequest appBannerListRequest) {
         BannerExample example = new BannerExample();
-        PageHelper.startPage(appBannerListRequest.getPageNum(), appBannerListRequest.getPageSize(),true);
         List<Banner> banners = bannerMapper.selectByExample(example);
-        PageInfo<AppBannerListResponse> repageList = new PageInfo(banners);
         List<AppBannerListResponse> eventList = BeanMapper.mapList(banners, AppBannerListResponse.class);
-        repageList.setList(eventList);
-        return repageList;
+        return eventList;
     }
 }
