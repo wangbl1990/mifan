@@ -7,6 +7,8 @@ public class SubscribeEvent {
 
     private String userCode;
 
+    private String phone;
+
     private String eventId;
 
     private Date eventTime;
@@ -31,6 +33,14 @@ public class SubscribeEvent {
 
     public void setUserCode(String userCode) {
         this.userCode = userCode == null ? null : userCode.trim();
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone == null ? null : phone.trim();
     }
 
     public String getEventId() {

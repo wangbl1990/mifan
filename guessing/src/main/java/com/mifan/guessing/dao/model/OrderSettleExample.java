@@ -305,63 +305,123 @@ public class OrderSettleExample {
             return (Criteria) this;
         }
 
-        public Criteria andProfitAmountIsNull() {
-            addCriterion("profit_amount is null");
+        public Criteria andSettleIncomeIsNull() {
+            addCriterion("settle_income is null");
             return (Criteria) this;
         }
 
-        public Criteria andProfitAmountIsNotNull() {
-            addCriterion("profit_amount is not null");
+        public Criteria andSettleIncomeIsNotNull() {
+            addCriterion("settle_income is not null");
             return (Criteria) this;
         }
 
-        public Criteria andProfitAmountEqualTo(Long value) {
-            addCriterion("profit_amount =", value, "profitAmount");
+        public Criteria andSettleIncomeEqualTo(Long value) {
+            addCriterion("settle_income =", value, "settleIncome");
             return (Criteria) this;
         }
 
-        public Criteria andProfitAmountNotEqualTo(Long value) {
-            addCriterion("profit_amount <>", value, "profitAmount");
+        public Criteria andSettleIncomeNotEqualTo(Long value) {
+            addCriterion("settle_income <>", value, "settleIncome");
             return (Criteria) this;
         }
 
-        public Criteria andProfitAmountGreaterThan(Long value) {
-            addCriterion("profit_amount >", value, "profitAmount");
+        public Criteria andSettleIncomeGreaterThan(Long value) {
+            addCriterion("settle_income >", value, "settleIncome");
             return (Criteria) this;
         }
 
-        public Criteria andProfitAmountGreaterThanOrEqualTo(Long value) {
-            addCriterion("profit_amount >=", value, "profitAmount");
+        public Criteria andSettleIncomeGreaterThanOrEqualTo(Long value) {
+            addCriterion("settle_income >=", value, "settleIncome");
             return (Criteria) this;
         }
 
-        public Criteria andProfitAmountLessThan(Long value) {
-            addCriterion("profit_amount <", value, "profitAmount");
+        public Criteria andSettleIncomeLessThan(Long value) {
+            addCriterion("settle_income <", value, "settleIncome");
             return (Criteria) this;
         }
 
-        public Criteria andProfitAmountLessThanOrEqualTo(Long value) {
-            addCriterion("profit_amount <=", value, "profitAmount");
+        public Criteria andSettleIncomeLessThanOrEqualTo(Long value) {
+            addCriterion("settle_income <=", value, "settleIncome");
             return (Criteria) this;
         }
 
-        public Criteria andProfitAmountIn(List<Long> values) {
-            addCriterion("profit_amount in", values, "profitAmount");
+        public Criteria andSettleIncomeIn(List<Long> values) {
+            addCriterion("settle_income in", values, "settleIncome");
             return (Criteria) this;
         }
 
-        public Criteria andProfitAmountNotIn(List<Long> values) {
-            addCriterion("profit_amount not in", values, "profitAmount");
+        public Criteria andSettleIncomeNotIn(List<Long> values) {
+            addCriterion("settle_income not in", values, "settleIncome");
             return (Criteria) this;
         }
 
-        public Criteria andProfitAmountBetween(Long value1, Long value2) {
-            addCriterion("profit_amount between", value1, value2, "profitAmount");
+        public Criteria andSettleIncomeBetween(Long value1, Long value2) {
+            addCriterion("settle_income between", value1, value2, "settleIncome");
             return (Criteria) this;
         }
 
-        public Criteria andProfitAmountNotBetween(Long value1, Long value2) {
-            addCriterion("profit_amount not between", value1, value2, "profitAmount");
+        public Criteria andSettleIncomeNotBetween(Long value1, Long value2) {
+            addCriterion("settle_income not between", value1, value2, "settleIncome");
+            return (Criteria) this;
+        }
+
+        public Criteria andSettleLossIsNull() {
+            addCriterion("settle_loss is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSettleLossIsNotNull() {
+            addCriterion("settle_loss is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSettleLossEqualTo(Long value) {
+            addCriterion("settle_loss =", value, "settleLoss");
+            return (Criteria) this;
+        }
+
+        public Criteria andSettleLossNotEqualTo(Long value) {
+            addCriterion("settle_loss <>", value, "settleLoss");
+            return (Criteria) this;
+        }
+
+        public Criteria andSettleLossGreaterThan(Long value) {
+            addCriterion("settle_loss >", value, "settleLoss");
+            return (Criteria) this;
+        }
+
+        public Criteria andSettleLossGreaterThanOrEqualTo(Long value) {
+            addCriterion("settle_loss >=", value, "settleLoss");
+            return (Criteria) this;
+        }
+
+        public Criteria andSettleLossLessThan(Long value) {
+            addCriterion("settle_loss <", value, "settleLoss");
+            return (Criteria) this;
+        }
+
+        public Criteria andSettleLossLessThanOrEqualTo(Long value) {
+            addCriterion("settle_loss <=", value, "settleLoss");
+            return (Criteria) this;
+        }
+
+        public Criteria andSettleLossIn(List<Long> values) {
+            addCriterion("settle_loss in", values, "settleLoss");
+            return (Criteria) this;
+        }
+
+        public Criteria andSettleLossNotIn(List<Long> values) {
+            addCriterion("settle_loss not in", values, "settleLoss");
+            return (Criteria) this;
+        }
+
+        public Criteria andSettleLossBetween(Long value1, Long value2) {
+            addCriterion("settle_loss between", value1, value2, "settleLoss");
+            return (Criteria) this;
+        }
+
+        public Criteria andSettleLossNotBetween(Long value1, Long value2) {
+            addCriterion("settle_loss not between", value1, value2, "settleLoss");
             return (Criteria) this;
         }
 

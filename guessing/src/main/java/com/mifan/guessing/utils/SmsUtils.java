@@ -29,7 +29,7 @@ public class SmsUtils {
 
 
 
-    //数日未直播的开播提醒
+    //发送短信
     public static boolean sendSms(String mobile,String content){
         boolean flag = false;
         HashMap<String, Object> result = null;

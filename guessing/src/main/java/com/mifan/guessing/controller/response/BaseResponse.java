@@ -22,7 +22,7 @@ public class BaseResponse<T> {
     }
 
     public static BaseResponse generateBadResponseEntity(String message, Object object) {
-        return new BaseResponse<>(GuessingErrorCode.FAIL.getValue(), message, object);
+        return new BaseResponse<>(GuessingErrorCode.SYSTEM_ERROR.getValue(), message, object);
     }
 
     public static BaseResponse generateBadResponseEntity(int code, String message, Object object) {

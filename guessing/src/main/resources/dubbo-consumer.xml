@@ -10,13 +10,13 @@
 
     <dubbo:application name="mifan-guessing" />
 
-    <dubbo:registry protocol="zookeeper" address="172.16.0.73:2181"/>
+    <dubbo:registry protocol="zookeeper" address="10.170.1.44:2181"/>
 
     <dubbo:monitor protocol="registry"/>
 
     <dubbo:consumer timeout="5000"/>
 
     <dubbo:reference id="userService" interface="tv.zhangyu.rpcservice.UserService"/>
-<!--    <dubbo:reference id="unionUserService" interface="tv.zhangyu.unionpay.rpc.UnionUserService"/>-->
+    <dubbo:reference id="moneyService" interface="tv.zhangyu.rpcservice.MoneyService"/>
         
 </beans>

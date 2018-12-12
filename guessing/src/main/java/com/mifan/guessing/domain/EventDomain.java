@@ -16,6 +16,7 @@ import com.mifan.guessing.manager.RollingBallManager;
 import com.mifan.guessing.utils.BeanMapper;
 import com.mifan.guessing.utils.DateUtils;
 import com.mifan.guessing.utils.IdMakerUtils;
+import com.mifan.guessing.utils.SmsUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
@@ -92,16 +93,13 @@ public class EventDomain {
      * 发送预约短信
      */
     public void sendSubscribeMsg(){
-
         //查询5分钟后开始的比赛
         SubscribeEventExample eventExample = new SubscribeEventExample();
         Date date = DateUtils.addMinutes(new Date(),5);
         eventExample.createCriteria().andEventTimeEqualTo(date);
         List<SubscribeEvent> subscribeEvents = subscribeEventMapper.selectByExample(eventExample);
-
         for(SubscribeEvent subscribeEvent : subscribeEvents){
-            //TODO：发送短信
-
+            SmsUtils.sendSms(subscribeEvent.getPhone(),"");
         }
     }
 }

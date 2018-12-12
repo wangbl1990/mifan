@@ -9,7 +9,9 @@ public class OrderSettle {
 
     private Long orderAmount;
 
-    private Long profitAmount;
+    private Long settleIncome;
+
+    private Long settleLoss;
 
     private String type;
 
@@ -49,12 +51,20 @@ public class OrderSettle {
         this.orderAmount = orderAmount;
     }
 
-    public Long getProfitAmount() {
-        return profitAmount;
+    public Long getSettleIncome() {
+        return settleIncome;
     }
 
-    public void setProfitAmount(Long profitAmount) {
-        this.profitAmount = profitAmount;
+    public void setSettleIncome(Long settleIncome) {
+        this.settleIncome = settleIncome;
+    }
+
+    public Long getSettleLoss() {
+        return settleLoss;
+    }
+
+    public void setSettleLoss(Long settleLoss) {
+        this.settleLoss = settleLoss;
     }
 
     public String getType() {

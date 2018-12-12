@@ -81,7 +81,7 @@ public class RollingBallManager {
             }
         }else{
             logger.error("赛事列表查询失败"+result);
-            throw new GuessingRunTimeException(GuessingErrorCode.FAIL);
+            throw new GuessingRunTimeException(GuessingErrorCode.SYSTEM_ERROR);
         }
         return eventList;
     }
@@ -108,7 +108,7 @@ public class RollingBallManager {
             event = JSONObject.toJavaObject(data,Event.class);
         }else{
             logger.error("赛事详情查询失败"+result);
-            throw new GuessingRunTimeException(GuessingErrorCode.FAIL);
+            throw new GuessingRunTimeException(GuessingErrorCode.SYSTEM_ERROR);
         }
         return event;
     }
@@ -144,7 +144,7 @@ public class RollingBallManager {
             }
         }else{
             logger.error("赛事市场查询失败"+result);
-            throw new GuessingRunTimeException(GuessingErrorCode.FAIL);
+            throw new GuessingRunTimeException(GuessingErrorCode.SYSTEM_ERROR);
         }
         return eventMarketList;
     }
@@ -176,7 +176,7 @@ public class RollingBallManager {
             orderResult = JSONObject.toJavaObject(data,TradeOrder.class);
         }else{
             logger.error("下单失败"+result);
-            throw new GuessingRunTimeException(GuessingErrorCode.FAIL);
+            throw new GuessingRunTimeException(GuessingErrorCode.SYSTEM_ERROR);
         }
         return orderResult;
     }
