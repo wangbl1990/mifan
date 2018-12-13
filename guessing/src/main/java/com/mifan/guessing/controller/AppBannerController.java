@@ -1,11 +1,8 @@
 package com.mifan.guessing.controller;
 
-import com.github.pagehelper.PageInfo;
 import com.mifan.guessing.controller.request.banner.*;
 import com.mifan.guessing.controller.response.BaseResponse;
 import com.mifan.guessing.controller.response.banner.AppBannerListResponse;
-import com.mifan.guessing.controller.response.banner.BossBannerListResponse;
-import com.mifan.guessing.controller.response.banner.BossGetBannerResponse;
 import com.mifan.guessing.domain.BannerDomain;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
