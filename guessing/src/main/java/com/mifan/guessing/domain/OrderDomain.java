@@ -40,10 +40,10 @@ public class OrderDomain {
     private TradeOrderMapper tradeOrderMapper;
     @Autowired
     private RollingBallManager rollingBallManager;
-    @Autowired
-    private UserService userService;
-    @Autowired
-    private MoneyService moneyService;
+//    @Autowired
+//    private UserService userService;
+//    @Autowired
+//    private MoneyService moneyService;
     @Autowired
     private OrderSettleMapper orderSettleMapper;
 
@@ -54,7 +54,8 @@ public class OrderDomain {
      */
     public SubmitOrderResponse submitOrder(SubmitOrderRequest submitOrderRequest) {
         //校验用户信息
-        User user = userService.getUserByUserId(submitOrderRequest.getUserCode());
+//        User user = userService.getUserByUserId(submitOrderRequest.getUserCode());
+        User user = new User();
         //落单
         TradeOrder tradeOrder = new TradeOrder();
         tradeOrder.setEventId(submitOrderRequest.getEventId());
@@ -72,7 +73,7 @@ public class OrderDomain {
         tradeOrder.setUserName(user.getNickname());
         tradeOrderMapper.insert(tradeOrder);
         //冻结用户下单米粒
-        moneyService.removeMoney(submitOrderRequest.getUserCode(),submitOrderRequest.getRequestAmount().longValue(),"竞猜投注扣减用户米粒");
+//        moneyService.removeMoney(submitOrderRequest.getUserCode(),submitOrderRequest.getRequestAmount().longValue(),"竞猜投注扣减用户米粒");
         //请求滚球下单
         SubmitOrderResponse response = null;
         try {
@@ -80,7 +81,7 @@ public class OrderDomain {
             response = BeanMapper.map(order,SubmitOrderResponse.class);
         }catch (Exception e){
             //解冻用户米粒
-            moneyService.addMoney(submitOrderRequest.getUserCode(),submitOrderRequest.getRequestAmount().longValue(),"竞猜投注失败恢复扣减用户米粒");
+//            moneyService.addMoney(submitOrderRequest.getUserCode(),submitOrderRequest.getRequestAmount().longValue(),"竞猜投注失败恢复扣减用户米粒");
             //更新订单状态投注失败
             TradeOrder updateOrder = new TradeOrder();
             updateOrder.setId(tradeOrder.getId());
@@ -126,12 +127,12 @@ public class OrderDomain {
             if(null != orderSettleRequest.getNet_return() && 1 == orderSettleRequest.getNet_return().compareTo(new BigDecimal(0))){
                 //盈利
                 BigDecimal addAmount = orderSettleRequest.getRequest_amount().add(orderSettleRequest.getNet_return());
-                moneyService.addMoney(tradeOrder.getUserCode(),addAmount.longValue(),"结算盈利加账");
+//                moneyService.addMoney(tradeOrder.getUserCode(),addAmount.longValue(),"结算盈利加账");
             }else{
                 //亏损
                 BigDecimal addAmount = orderSettleRequest.getRequest_amount().subtract(orderSettleRequest.getNet_return());
                 if(1 == addAmount.compareTo(new BigDecimal(0))){
-                    moneyService.addMoney(tradeOrder.getUserCode(),addAmount.longValue(),"结算亏损加账");
+//                    moneyService.addMoney(tradeOrder.getUserCode(),addAmount.longValue(),"结算亏损加账");
                 }
 
             }

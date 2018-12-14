@@ -10,7 +10,7 @@ import org.springframework.core.annotation.Order;
 
 @SpringBootApplication
 @MapperScan("com.mifan.guessing.dao.mapper")
-@ImportResource({"classpath:dubbo-consumer.xml",})
+//@ImportResource({"classpath:dubbo-consumer.xml","classpath:dubbo-provider.xml"})
 public class GuessingApplication {
 
 	public static void main(String[] args) {

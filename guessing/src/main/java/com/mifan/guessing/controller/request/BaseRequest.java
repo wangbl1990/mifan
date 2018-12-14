@@ -1,54 +1,30 @@
 package com.mifan.guessing.controller.request;
 
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.NotBlank;
+
+@Data
+@NoArgsConstructor
 public class BaseRequest {
 
-    private String userCode;//用户编码
+    @ApiModelProperty(  name = "userCode" , value = "用户Id token转换不涉及前段上送" , hidden = true )
+    private String userCode;
 
-    private String clinetIp;//用户ip
+    @ApiModelProperty(  name = "clinetIp" , value = "用户IP" ,hidden = true )
+    private String clinetIp;
 
-    private String deviceCode;//设备编码
+    @ApiModelProperty(  name = "deviceCode" , value = "用户设备编码" )
+    @NotBlank(message = "用户设备编码不能为空")
+    private String deviceCode;
 
-    private String deviceType;//设备类型
+    @ApiModelProperty(  name = "deviceType" , value = "用户设备类型" )
+    @NotBlank(message = "用户设备类型不能为空")
+    private String deviceType;
 
-    private String version;//应用编码
+    @ApiModelProperty(  name = "version" , value = "应用版本" )
+    @NotBlank(message = "应用版本不能为空")
+    private String version;
 
-    public String getUserCode() {
-        return userCode;
-    }
-
-    public void setUserCode(String userCode) {
-        this.userCode = userCode;
-    }
-
-    public String getClinetIp() {
-        return clinetIp;
-    }
-
-    public void setClinetIp(String clinetIp) {
-        this.clinetIp = clinetIp;
-    }
-
-    public String getDeviceCode() {
-        return deviceCode;
-    }
-
-    public void setDeviceCode(String deviceCode) {
-        this.deviceCode = deviceCode;
-    }
-
-    public String getDeviceType() {
-        return deviceType;
-    }
-
-    public void setDeviceType(String deviceType) {
-        this.deviceType = deviceType;
-    }
-
-    public String getVersion() {
-        return version;
-    }
-
-    public void setVersion(String version) {
-        this.version = version;
-    }
 }

@@ -2,15 +2,22 @@ package com.mifan.guessing.controller.response.event;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * @auther wangbinlei
  * @create 2018/12/4
  */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @ApiModel
-public class EventListResponse {
+public class EventListResponse implements Serializable {
 
     @ApiModelProperty( name = "id" , value = "赛事ID" )
     private String id;//赛事ID
@@ -41,115 +48,4 @@ public class EventListResponse {
     @ApiModelProperty( name = "stage" , value = "赛事ID" )
     private String stage;
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getEventId() {
-        return eventId;
-    }
-
-    public void setEventId(String eventId) {
-        this.eventId = eventId;
-    }
-
-    public String getSportId() {
-        return sportId;
-    }
-
-    public void setSportId(String sportId) {
-        this.sportId = sportId;
-    }
-
-    public String getEventName() {
-        return eventName;
-    }
-
-    public void setEventName(String eventName) {
-        this.eventName = eventName;
-    }
-
-    public Date getEventTime() {
-        return eventTime;
-    }
-
-    public void setEventTime(Date eventTime) {
-        this.eventTime = eventTime;
-    }
-
-    public String getCompetitionName() {
-        return competitionName;
-    }
-
-    public void setCompetitionName(String competitionName) {
-        this.competitionName = competitionName;
-    }
-
-    public String getSeasonName() {
-        return seasonName;
-    }
-
-    public void setSeasonName(String seasonName) {
-        this.seasonName = seasonName;
-    }
-
-    public String getRoundName() {
-        return roundName;
-    }
-
-    public void setRoundName(String roundName) {
-        this.roundName = roundName;
-    }
-
-    public String getHomeTeamName() {
-        return homeTeamName;
-    }
-
-    public void setHomeTeamName(String homeTeamName) {
-        this.homeTeamName = homeTeamName;
-    }
-
-    public String getAwayTeamName() {
-        return awayTeamName;
-    }
-
-    public void setAwayTeamName(String awayTeamName) {
-        this.awayTeamName = awayTeamName;
-    }
-
-    public String getHomeTeamScore() {
-        return homeTeamScore;
-    }
-
-    public void setHomeTeamScore(String homeTeamScore) {
-        this.homeTeamScore = homeTeamScore;
-    }
-
-    public String getAwayTeamScore() {
-        return awayTeamScore;
-    }
-
-    public void setAwayTeamScore(String awayTeamScore) {
-        this.awayTeamScore = awayTeamScore;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public String getStage() {
-        return stage;
-    }
-
-    public void setStage(String stage) {
-        this.stage = stage;
-    }
 }

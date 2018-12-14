@@ -18,10 +18,11 @@ public class UserAuthenticationFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         ServletRequest requestWrapper = null;
-        String userId = null ;
+        String userId = "" ;
         try {
             //从cookie中获取用户ID
             userId = LoginUtils.tryAutoLogin(request,response);
+            request.setAttribute("userId", userId);
             if (request instanceof HttpServletRequest) {
                 requestWrapper = new RequestWrapper((HttpServletRequest) request);
             }
@@ -30,12 +31,13 @@ public class UserAuthenticationFilter extends OncePerRequestFilter {
                 requestWrapper = new RequestWrapper((HttpServletRequest) request);
             }
         }
-        request.setAttribute("userId", userId);
+        HttpServletResponse resp = (HttpServletResponse) response;
+        ResponseWrapper responseWrapper = new ResponseWrapper(resp); // 包装响应对象 resp 并缓存响应数据
         if (null == requestWrapper) {
             //如果jwt令牌通过了检测, 那么就把request传递给后面的RESTful api
             filterChain.doFilter(request, response);
         } else {
-            filterChain.doFilter(requestWrapper, response);
+            filterChain.doFilter(requestWrapper, responseWrapper);
         }
     }
 }

@@ -1,7 +1,11 @@
 package com.mifan.guessing.controller.request.banner;
 
+import com.mifan.guessing.controller.request.BaseRequest;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -11,6 +15,6 @@ import javax.validation.constraints.Min;
  * @create 2018/12/4
  */
 @ApiModel
-public class AppBannerListRequest {
+public class AppBannerListRequest extends BaseRequest {
 
 }
